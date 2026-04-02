@@ -35,10 +35,7 @@ const designProjects = [
   { id: 1, img: '/samples/PRODUCT DESIGN.png', fullImg: '/samples/PRODUCT DESIGN.png', title: 'FG Aesthetic Branding', expl: 'Created using Adobe Photoshop for product mockups and marketing assets.' },
   { id: 2, img: '/samples/sydney.png', fullImg: '/samples/sydney.png', title: 'Digital Illustration', expl: 'A Sydney Opera House concept art drawn purely in Medibang Paint Pro.' },
   { id: 3, img: '/samples/booth.png', fullImg: '/samples/booth.png', title: 'Capstone Booth Mockup', expl: 'Designed the physical booth layout and banners using Photoshop.' },
-  
-  // DITO: May img (para sa wheel) at video (para sa modal)
   { id: 4, img: '/samples/airpods.PNG', video: '/videos/AirPods_Animation.mp4', fullImg: '/samples/airpods.PNG', title: '3D AirPods Animation', expl: 'Modelled and rendered in Blender 5.0 for a personal advertisement project. Features a modern and techy vibe.' },
-  
   { id: 5, img: '/samples/coffee.png', fullImg: '/samples/coffee.png', title: 'Social Media Kit', expl: 'A personal project on coffee shop ad poster for social media posting designed via Canva.' },
   { id: 6, img: '/samples/PRODUCT DESIGN 2.png', fullImg: '/samples/PRODUCT DESIGN 2.png', title: 'UI Concept Art', expl: 'Website interface visualization edited in Photoshop.' },
 ];
@@ -323,7 +320,6 @@ const Portfolio = () => {
                                 whileHover={{ scale: 1.15, zIndex: 50 }}
                                 onClick={() => setSelectedDesign(proj)}
                             >
-                                {/* IBINALIK SA NORMAL IMAGE: Thumbnail lang ang ipapakita habang umiikot para iwas lag! */}
                                 <img src={proj.img} alt={proj.title} className="w-full h-full object-cover" />
                             </motion.div>
                         </div>
@@ -378,7 +374,6 @@ const Portfolio = () => {
                 <button onClick={() => setSelectedDesign(null)} className="absolute top-4 sm:top-6 right-4 sm:right-6 p-2 rounded-full bg-gray-100 dark:bg-neutral-900 text-gray-500 hover:text-black dark:hover:text-white transition-colors z-10"><X size={20}/></button>
                 <div className="grid md:grid-cols-5 gap-6 sm:gap-10 mt-8 sm:mt-6">
                     <div className="md:col-span-3 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-black flex items-center justify-center min-h-[300px]">
-                        {/* DITO INAPPLY ANG CONDITIONAL RENDERING SA LOOB NG MODAL! */}
                         {selectedDesign.video ? (
                             <video src={selectedDesign.video} controls autoPlay loop className="w-full h-auto object-contain max-h-[60vh]" />
                         ) : (
