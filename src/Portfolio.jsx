@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { Code, Layout, Database, Terminal, ExternalLink, Mail, Phone, MapPin, X } from 'lucide-react'; 
+import { ExternalLink, Mail, Phone, MapPin, X } from 'lucide-react';
 
 // --- DATA PARA SA LOOPING PROJECTS & EXPERIENCE ---
 const experienceData = [
