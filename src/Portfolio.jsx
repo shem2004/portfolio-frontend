@@ -216,7 +216,7 @@ const Portfolio = () => {
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shemisaiah0@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(159,18,57,0.4)] transition-all shadow-lg">
                   Let's Talk <Mail size={18} />
                 </a>
-                <a href="/cv/cv.pdf" download="Shem-Isaiah-Dela-Vega-CV.pdf" className="px-8 py-4 rounded-2xl font-bold border-2 border-gray-400 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all text-center hover:scale-105 text-black dark:text-white bg-white/50 dark:bg-black/50 backdrop-blur-sm shadow-lg">
+                <a href="/cv/delavega_cv.pdf" download="Shem-Isaiah-Dela-Vega-CV.pdf" className="px-8 py-4 rounded-2xl font-bold border-2 border-gray-400 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all text-center hover:scale-105 text-black dark:text-white bg-white/50 dark:bg-black/50 backdrop-blur-sm shadow-lg">
                   Download CV
                 </a>
               </div>
