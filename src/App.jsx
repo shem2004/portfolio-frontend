@@ -10,7 +10,7 @@ import Education from './pages/Education';
 import Skills from './pages/Skills';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
-import Projects from './pages/Projects';
+import Projects from './pages/MyProjects';
 import Admin from './pages/Admin';
 
 // --- BACKGROUND EFFECT (Fluid Aurora - Subtle & Dark) ---
