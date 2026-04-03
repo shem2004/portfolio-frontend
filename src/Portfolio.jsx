@@ -40,7 +40,7 @@ const designProjects = [
   { id: 6, img: '/samples/PRODUCT DESIGN 2.png', fullImg: '/samples/PRODUCT DESIGN 2.png', title: 'UI Concept Art', expl: 'Website interface visualization edited in Photoshop.' },
 ];
 
-// --- LAG-FREE COMPONENT: MAY INTERSECTION OBSERVER ---
+// --- LAG-FREE COMPONENT: MAY INTERSECTION OBSERVER & HARDWARE ACCELERATION ---
 const CubeBackground = ({ maskStyle }) => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
@@ -51,7 +51,7 @@ const CubeBackground = ({ maskStyle }) => {
     if (containerRef.current) observer.observe(containerRef.current);
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false }); // <-- Optimized for rendering
     let animationFrameId;
     let time = 0;
 
@@ -67,7 +67,9 @@ const CubeBackground = ({ maskStyle }) => {
       ctx.fillStyle = isDark ? '#000000' : '#ffffff'; 
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       const colors = { top: '#171717', left: '#0a0a0a', right: '#000000', stroke: '#525252' };
-      const size = window.innerWidth < 768 ? 45 : 80; 
+      
+      // FIXED: Mas malaking cubes sa phone para mas KONTING loops (80 instead of 45) = NO CRASH
+      const size = window.innerWidth < 768 ? 80 : 80; 
       const step = size + 2; 
       const offsetX = canvas.width / 2;
       const offsetY = canvas.height * 0.15;
@@ -100,7 +102,7 @@ const CubeBackground = ({ maskStyle }) => {
 
   return (
     <div ref={containerRef} className="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden" style={{ maskImage: maskStyle || 'none', WebkitMaskImage: maskStyle || 'none' }}>
-      <canvas ref={canvasRef} className="block w-full h-full opacity-90 dark:opacity-100 transition-opacity duration-500" />
+      <canvas ref={canvasRef} style={{ willChange: "transform, opacity" }} className="block w-full h-full opacity-90 dark:opacity-100 transition-opacity duration-500" />
     </div>
   );
 };
@@ -268,7 +270,7 @@ const Portfolio = () => {
         <div className="relative w-full overflow-hidden flex whitespace-nowrap py-12">
             <div className="absolute top-0 bottom-0 left-0 w-8 sm:w-12 md:w-32 bg-gradient-to-r from-white dark:from-black to-transparent z-20 pointer-events-none" />
             <div className="absolute top-0 bottom-0 right-0 w-8 sm:w-12 md:w-32 bg-gradient-to-l from-white dark:from-black to-transparent z-20 pointer-events-none" />
-            <style>{`@keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } } .animate-marquee { animation: marquee 35s linear infinite; } .animate-marquee:hover { animation-play-state: paused; }`}</style>
+            <style>{`@keyframes marquee { 0% { transform: translate3d(0%, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } } .animate-marquee { animation: marquee 35s linear infinite; will-change: transform; } .animate-marquee:hover { animation-play-state: paused; }`}</style>
             
             <div className="flex gap-4 sm:gap-8 w-max px-4 animate-marquee">
               {[...experienceData, ...experienceData].map((item, index) => (

@@ -13,18 +13,19 @@ import Contact from './pages/Contact';
 import Projects from './pages/MyProjects';
 import Admin from './pages/Admin';
 
-// --- BACKGROUND EFFECT (Fluid Aurora - Subtle & Dark) ---
 const BackgroundEffect = () => (
   <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
     <motion.div
       animate={{ scale: [1, 1.2, 1], x: [0, 100, -50, 0], y: [0, 50, -50, 0], rotate: [0, 60, -60, 0] }}
       transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-red-900/30 rounded-full blur-[120px] mix-blend-screen"
+      style={{ willChange: "transform" }} // <-- ITO ANG MAGIC PARA DI MAG LAG
+      className="absolute top-[-20%] left-[-10%] w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-red-900/30 rounded-full blur-[80px] md:blur-[120px] mix-blend-screen"
     />
     <motion.div
       animate={{ scale: [1.2, 1, 1.2], x: [0, -100, 50, 0], y: [0, -50, 50, 0], rotate: [0, -60, 60, 0] }}
       transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-rose-900/30 rounded-full blur-[100px] mix-blend-screen"
+      style={{ willChange: "transform" }} // <-- ITO ANG MAGIC PARA DI MAG LAG
+      className="absolute bottom-[-20%] right-[-10%] w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-rose-900/30 rounded-full blur-[80px] md:blur-[100px] mix-blend-screen"
     />
   </div>
 );
