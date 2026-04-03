@@ -157,8 +157,9 @@ const Portfolio = () => {
               BSIT Student @ PUP Sta. Mesa
             </span>
             
+            {/* PINALITAN: Mas responsive na typography para sa mobile view */}
             <motion.h1 
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 uppercase tracking-[0.1em] leading-none cursor-default flex flex-col items-center drop-shadow-xl dark:drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
+              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-10 md:mb-8 uppercase tracking-[-0.01em] sm:tracking-[0.1em] leading-[1.05] sm:leading-none cursor-default flex flex-col items-center drop-shadow-xl dark:drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
               initial="hidden"
               animate="visible"
               variants={{
@@ -187,7 +188,7 @@ const Portfolio = () => {
                 ))}
               </span>
 
-              <span className="block text-rose-700 dark:text-rose-500 mt-2 md:mt-4 overflow-visible pb-4">
+              <span className="block text-rose-700 dark:text-rose-500 mt-1 md:mt-4 overflow-visible pb-1.5 md:pb-4">
                 {"DELA VEGA".split("").map((char, index) => (
                   <motion.span 
                     key={`dela-${index}`} 
