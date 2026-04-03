@@ -61,10 +61,6 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <Link to="/achievements" className={isActive('/achievements')}>Achievements</Link>
           <Link to="/skills" className={isActive('/skills')}>Skills</Link>
           <Link to="/education" className={isActive('/education')}>Education</Link>
-          {/* Pinalaki ang Contact button padding at text */}
-          <Link to="/contact" className="px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-xl font-bold hover:scale-105 transition-all shadow-lg">
-            Contact / About
-          </Link>
         </div>
 
         {/* Theme Toggle & Mobile Menu - PINALAKI ANG ICONS */}
