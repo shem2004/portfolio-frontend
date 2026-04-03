@@ -211,7 +211,7 @@ const Portfolio = () => {
                 ))}
               </span>
             </motion.h1>
-            
+
             {/* Subtext and Buttons */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.8 }}>
               <p className="text-base sm:text-lg md:text-xl text-white dark:text-gray-200 max-w-2xl mx-auto leading-relaxed mb-12 hover:scale-105 transition-all duration-300 cursor-default px-4 drop-shadow-sm font-medium">
@@ -236,7 +236,7 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative w-full max-w-md mx-auto lg:max-w-none group">
             <div className="absolute -left-16 sm:-left-20 top-1/2 -translate-y-1/2 -rotate-90 flex items-center justify-center p-2 bg-neutral-950/90 rounded-full shadow-lg border border-neutral-800 z-20 pointer-events-none transition-all duration-500 group-hover:opacity-0 group-hover:-translate-x-4 min-w-[150px]">
-                <span className="text-xs sm:text-sm font-black tracking-[0.5em] uppercase text-rose-500 flex items-center justify-center leading-none pl-[0.5em]">Hover Me</span>
+                <span className="text-xs sm:text-sm font-black tracking-[0.5em] uppercase text-rose-500 flex items-center justify-center leading-none pl-[0.5em]">Hover/Tap</span>
             </div>
             <div className="aspect-[2/3] rounded-3xl overflow-hidden bg-gray-200 dark:bg-neutral-900 border-2 border-rose-800/20 shadow-2xl relative z-10">
                 <img src="/shem2.jpg" alt="Shem Isaiah Dela Vega" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
