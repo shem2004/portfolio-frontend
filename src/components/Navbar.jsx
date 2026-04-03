@@ -96,7 +96,6 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               <Link to="/achievements" onClick={() => setIsMenuOpen(false)}>Achievements</Link>
               <Link to="/skills" onClick={() => setIsMenuOpen(false)}>Skills</Link>
               <Link to="/education" onClick={() => setIsMenuOpen(false)}>Education</Link>
-              <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
               <Link to="/projects" onClick={() => setIsMenuOpen(false)}>Projects</Link>
             </div>
           </motion.div>

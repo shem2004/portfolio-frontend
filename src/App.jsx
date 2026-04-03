@@ -9,7 +9,6 @@ import Achievements from './pages/Achievements';
 import Education from './pages/Education';
 import Skills from './pages/Skills';
 import Experience from './pages/Experience';
-import Contact from './pages/Contact';
 import Projects from './pages/MyProjects';
 import Admin from './pages/Admin';
 
@@ -173,7 +172,6 @@ function App() {
               <Route path="/education" element={<Education />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/experience" element={<Experience />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/admin" element={<Admin />} />
             </Routes>
