@@ -157,9 +157,9 @@ const Portfolio = () => {
               BSIT Student @ PUP Sta. Mesa
             </span>
             
-            {/* PINALITAN: Sakto lang na laki (text-4xl) at pinigilan ang pag-hiwalay ng letter H */}
+           {/* PINALITAN: Ipinilit ang text-5xl (para sa angas), pero organisado gamit ang leading-none at whitespace-nowrap */}
             <motion.h1 
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-10 md:mb-8 uppercase tracking-tighter sm:tracking-[0.1em] leading-tight sm:leading-none cursor-default flex flex-col items-center drop-shadow-xl dark:drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 md:mb-8 uppercase tracking-tighter sm:tracking-[0.1em] leading-none cursor-default flex flex-col items-center drop-shadow-xl dark:drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
               initial="hidden"
               animate="visible"
               variants={{
@@ -167,8 +167,8 @@ const Portfolio = () => {
                 visible: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.1 } }
               }}
             >
-              {/* Dinagdagan ng whitespace-nowrap para hindi mahulog ang H sa mobile */}
-              <span className="block text-white transition-colors overflow-visible whitespace-nowrap">
+              {/* whitespace-nowrap ay kailangan dito para hindi mahulog ang letters */}
+              <span className="block text-white transition-colors overflow-visible whitespace-nowrap pb-1">
                 {"SHEM ISAIAH".split("").map((char, index) => (
                   <motion.span 
                     key={index} 
@@ -189,7 +189,8 @@ const Portfolio = () => {
                 ))}
               </span>
 
-              <span className="block text-rose-700 dark:text-rose-500 mt-2 md:mt-4 overflow-visible pb-2 md:pb-4 whitespace-nowrap">
+              {/* mt-3 para sa organisadong gap sa pagitan ng two lines */}
+              <span className="block text-rose-700 dark:text-rose-500 mt-3 md:mt-4 overflow-visible pb-2 md:pb-4 whitespace-nowrap">
                 {"DELA VEGA".split("").map((char, index) => (
                   <motion.span 
                     key={`dela-${index}`} 
@@ -210,7 +211,7 @@ const Portfolio = () => {
                 ))}
               </span>
             </motion.h1>
-
+            
             {/* Subtext and Buttons */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.8 }}>
               <p className="text-base sm:text-lg md:text-xl text-white dark:text-gray-200 max-w-2xl mx-auto leading-relaxed mb-12 hover:scale-105 transition-all duration-300 cursor-default px-4 drop-shadow-sm font-medium">
