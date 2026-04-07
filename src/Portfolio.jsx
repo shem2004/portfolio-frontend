@@ -121,25 +121,36 @@ const Portfolio = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('Sending...');
+    
     try {
-      const response = await fetch('https://portfolio-backend-qn7t.onrender.com/api/contact', { 
+      // STEP A: I-save muna sa database mo (Existing Backend)
+      const dbResponse = await fetch('https://portfolio-backend-qn7t.onrender.com/api/contact', { 
         method: 'POST', 
         headers: { 'Content-Type': 'application/json' }, 
         body: JSON.stringify(formData) 
       });
-      const data = await response.json();
-      
-      // I-check kung success (Status 200)
-      if (response.ok) { 
+
+      // STEP B: Diretsong i-send sa Web3Forms (Client-Side Fetch)
+      const web3Response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: "5c99805d-c28b-4a45-bef6-a503f16d3ed0", // Ang iyong Access Key
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New Portfolio Message from ${formData.name}`
+        })
+      });
+
+      if (web3Response.ok) { 
         setStatus('Message sent successfully!'); 
         setFormData({ name: '', email: '', message: '' }); 
       } else {
-        // Kung nag-error galing sa backend (e.g., Spam limit)
-        setStatus(data.detail || 'Failed to send message.');
+        setStatus('Failed to send email. Please try again.');
       }
     } catch (error) { 
-      // Kung patay ang server o walang internet
-      setStatus('Failed to connect to the server. Please try again.'); 
+      setStatus('An error occurred. Please check your connection.'); 
     }
   };
 
