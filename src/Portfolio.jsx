@@ -122,7 +122,7 @@ const Portfolio = () => {
     e.preventDefault();
     setStatus('Sending...');
     try {
-      const response = await fetch('https://portfolio-backend-qn7t.onrender.com/api/contact', { 
+      const response = await fetch('https://001saiah.pythonanywhere.com/api/contact', { 
         method: 'POST', 
         headers: { 'Content-Type': 'application/json' }, 
         body: JSON.stringify(formData) 
