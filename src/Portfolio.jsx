@@ -122,10 +122,25 @@ const Portfolio = () => {
     e.preventDefault();
     setStatus('Sending...');
     try {
-      const response = await fetch('https://portfolio-backend-qn7t.onrender.com/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
+      const response = await fetch('https://portfolio-backend-qn7t.onrender.com/api/contact', { 
+        method: 'POST', 
+        headers: { 'Content-Type': 'application/json' }, 
+        body: JSON.stringify(formData) 
+      });
       const data = await response.json();
-      if (data.status === 'success') { setStatus('Message sent successfully!'); setFormData({ name: '', email: '', message: '' }); }
-    } catch (error) { setStatus('Failed to send message.'); }
+      
+      // I-check kung success (Status 200)
+      if (response.ok) { 
+        setStatus('Message sent successfully!'); 
+        setFormData({ name: '', email: '', message: '' }); 
+      } else {
+        // Kung nag-error galing sa backend (e.g., Spam limit)
+        setStatus(data.detail || 'Failed to send message.');
+      }
+    } catch (error) { 
+      // Kung patay ang server o walang internet
+      setStatus('Failed to connect to the server. Please try again.'); 
+    }
   };
 
   const fadeInUp = { initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, transition: { duration: 0.6 } };
