@@ -10,6 +10,10 @@ const Skills = () => {
 
   // Kumpletong listahan ng skills
   const skillsData = {
+    Automation: [
+      { name: "Power Automate", img: "https://msicons.com/icons/power-platform/PowerAutomate_scalable.svg" },
+      { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" }
+    ],
     Frontend: [
       { name: "React / JSX", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
       { name: "Tailwind CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
@@ -40,10 +44,6 @@ const Skills = () => {
       { name: "Blender", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" },
       { name: "Canva", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" },
       { name: "Medibang Pro", img: "https://cdn.worldvectorlogo.com/logos/wacom-1.svg" } 
-    ],
-    Automation: [
-      { name: "Power Automate", img: "https://msicons.com/icons/power-platform/PowerAutomate_scalable.svg" },
-      { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" }
     ]
   };
 

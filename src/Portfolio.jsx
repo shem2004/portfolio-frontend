@@ -466,6 +466,10 @@ const SkillsTicker = () => {
   const contentRef = useRef(null);
 
   const skillsData = {
+    Automation: [
+      { name: "Power Automate", img: "https://msicons.com/icons/power-platform/PowerAutomate_scalable.svg" },
+      { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" }
+    ],
     Frontend: [
       { name: "React / JSX", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
       { name: "Tailwind CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
