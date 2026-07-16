@@ -42,7 +42,7 @@ const Skills = () => {
       { name: "Medibang Pro", img: "https://cdn.worldvectorlogo.com/logos/wacom-1.svg" } 
     ],
     Automation: [
-      { name: "Power Automate", img: "https://img.icons8.com/color/144/power-bi.png" },
+      { name: "Power Automate", img: "https://msicons.com/icons/power-platform/PowerAutomate_scalable.svg" },
       { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" }
     ]
   };
