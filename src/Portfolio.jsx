@@ -27,6 +27,18 @@ const experienceData = [
     type: "Adventus IT Services",
     desc: "Streamlined UAT processes and hardware diagnostics for laptop redeployment at Adventus IT Services.",
     tags: ["Hardware", "Diagnostics", "UAT", "SharePoint"]
+  },
+  {
+    title: "Cloud Workflow Automation",
+    type: "Automation Project",
+    desc: "Designed automated cloud flows using Power Automate. Utilized Office 365 Outlook as a polling trigger to monitor incoming emails, extracting attachments via a 'For-each' loop to dynamically save them into a designated OneDrive for Business folder, bypassing manual data entry.",
+    tags: ["Power Automate", "Office 365", "OneDrive", "Cloud Workflows"]
+  },
+  {
+    title: "IT Helpdesk Analytics Dashboard",
+    type: "Data Analytics & Reporting",
+    desc: "Developed an IT Helpdesk reporting dashboard using Power BI Desktop. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values, utilizing interactive Donut Charts and KPI cards to track ticket volume by priority class.",
+    tags: ["Power BI", "Power Query", "Data Visualization", "DAX"]
   }
 ];
 
