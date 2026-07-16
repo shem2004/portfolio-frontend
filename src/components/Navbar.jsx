@@ -58,8 +58,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <Link to="/" className={isActive('/')}>Home</Link>
           <Link to="/experience" className={isActive('/experience')}>Experience</Link>
           <Link to="/achievements" className={isActive('/achievements')}>Certifications</Link>
-          <Link to="/skills" className={isActive('/skills')}>Skills</Link>
           <Link to="/projects" className={isActive('/projects')}>Projects</Link>
+          <Link to="/skills" className={isActive('/skills')}>Skills</Link>
           <Link to="/education" className={isActive('/education')}>Education</Link>
         </div>
 
