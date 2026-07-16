@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import powerAutomate from "./assets/microsoft-power-automated.png";
+
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState('All');
