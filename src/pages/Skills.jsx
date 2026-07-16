@@ -13,8 +13,8 @@ const Skills = () => {
     Automation: [
       { name: "Power Automate", img: "https://msicons.com/icons/power-platform/PowerAutomate_scalable.svg" },
       { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" },
-      { name: "IDP & AI Builder", img: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Microsoft_AI_logo.svg" },
-      { name: "Workflow Orchestration", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoft/microsoft-original.svg" },
+      { name: "IDP & AI Builder", img: "https://img.icons8.com/color/480/artificial-intelligence.png" },
+      { name: "Workflow Orchestration", img: "https://img.icons8.com/color/480/flow-chart.png" },
     ],
     Frontend: [
       { name: "React / JSX", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
@@ -176,7 +176,7 @@ const Skills = () => {
       >
         <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-black dark:text-white mb-4">Complete Skill Overview</h2>
-            <p className="text-gray-500">A structured list of my technical capabilities for quick reading.</p>
+            <p className="text-gray-500">A structured list of my technical capabilities that I've experienced.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
