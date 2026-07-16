@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import powerAutomate from "./assets/microsoft-power-automated.png";
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState('All');
@@ -42,9 +43,15 @@ const Skills = () => {
       { name: "Medibang Pro", img: "https://cdn.worldvectorlogo.com/logos/wacom-1.svg" } 
     ],
     Automation: [
-      { name: "Power Automate", img: "/samples/microsoft-power-automated.png" },
-      { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" }
-    ]
+    {
+      name: "Power Automate",
+      img: powerAutomate,
+    },
+    {
+      name: "Power BI",
+      img: "https://img.icons8.com/color/144/power-bi.png",
+    },
+  ],
   };
 
   const currentItems = activeTab === 'All'
