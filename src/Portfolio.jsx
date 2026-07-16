@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ExternalLink, Mail, Phone, MapPin, X } from 'lucide-react';
+import { ExternalLink, Mail, Phone, MapPin, X, Sparkles } from 'lucide-react';
 
 // --- DATA PARA SA LOOPING PROJECTS & EXPERIENCE ---
 const experienceData = [
@@ -52,6 +52,64 @@ const designProjects = [
   { id: 6, img: '/samples/PRODUCT DESIGN 2.png', fullImg: '/samples/PRODUCT DESIGN 2.png', title: 'UI Concept Art', expl: 'Website interface visualization edited in Photoshop.' },
 ];
 
+// --- DATA PARA SA AUTOMATION SLIDESHOW ---
+const automationSlides = [
+  { 
+    id: 1, 
+    img: '/samples/idp1.png', 
+    title: 'Intelligent Document Processing', 
+    desc: 'Automated data extraction workflow routing using AI Builder. Engineered to significantly reduce manual data entry and improve accuracy across departments.' 
+  },
+  { 
+    id: 2, 
+    img: '/samples/idp2.png', 
+    title: 'Intelligent Document Processing', 
+    desc: 'Automated data extraction workflow routing using AI Builder. Engineered to significantly reduce manual data entry and improve accuracy across departments.' 
+  },
+  { 
+    id: 3, 
+    img: '/samples/bi1.png', 
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.' 
+  },
+   { 
+    id: 4, 
+    img: '/samples/bi2.png', 
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.' 
+  },
+  { 
+    id: 5, 
+    img: '/samples/bi3.png', 
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.' 
+  },
+  { 
+    id: 6, 
+    img: '/samples/bi4.png', 
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.' 
+  },
+  { 
+    id: 7, 
+    img: '/samples/pa1.png', 
+    title: 'Enterprise Workflow Orchestration', 
+    desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.' 
+  },
+  { 
+    id: 8, 
+    img: '/samples/pa2.png', 
+    title: 'Enterprise Workflow Orchestration', 
+    desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.' 
+  },
+  { 
+    id: 9, 
+    img: '/samples/pa3.png', 
+    title: 'Enterprise Workflow Orchestration', 
+    desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.' 
+  }
+];
+
 // --- LAG-FREE COMPONENT: MAY INTERSECTION OBSERVER & HARDWARE ACCELERATION ---
 const CubeBackground = ({ maskStyle }) => {
   const canvasRef = useRef(null);
@@ -63,7 +121,7 @@ const CubeBackground = ({ maskStyle }) => {
     if (containerRef.current) observer.observe(containerRef.current);
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d', { alpha: false }); // <-- Optimized for rendering
+    const ctx = canvas.getContext('2d', { alpha: false }); 
     let animationFrameId;
     let time = 0;
 
@@ -80,7 +138,6 @@ const CubeBackground = ({ maskStyle }) => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       const colors = { top: '#171717', left: '#0a0a0a', right: '#000000', stroke: '#525252' };
       
-      // FIXED: Mas malaking cubes sa phone para mas KONTING loops (80 instead of 45) = NO CRASH
       const size = window.innerWidth < 768 ? 80 : 80; 
       const step = size + 2; 
       const offsetX = canvas.width / 2;
@@ -123,6 +180,9 @@ const Portfolio = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
   const [selectedDesign, setSelectedDesign] = useState(null);
+  
+  // State for Automation Slideshow
+  const [autoIndex, setAutoIndex] = useState(0);
 
   // Parallax Setup
   const { scrollY } = useScroll();
@@ -130,24 +190,30 @@ const Portfolio = () => {
   const textY = useTransform(scrollY, [0, 800], [0, -150]); 
   const textOpacity = useTransform(scrollY, [0, 400], [1, 0]); 
 
+  // Automation Slideshow Auto-play
+  useEffect(() => {
+    const autoTimer = setInterval(() => {
+      setAutoIndex((prev) => (prev + 1) % automationSlides.length);
+    }, 4000); 
+    return () => clearInterval(autoTimer);
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('Sending...');
     
     try {
-      // STEP A: I-save muna sa database mo (Existing Backend)
       const dbResponse = await fetch('https://portfolio-backend-qn7t.onrender.com/api/contact', { 
         method: 'POST', 
         headers: { 'Content-Type': 'application/json' }, 
         body: JSON.stringify(formData) 
       });
 
-      // STEP B: Diretsong i-send sa Web3Forms (Client-Side Fetch)
       const web3Response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: "5c99805d-c28b-4a45-bef6-a503f16d3ed0", // Ang iyong Access Key
+          access_key: "5c99805d-c28b-4a45-bef6-a503f16d3ed0", 
           name: formData.name,
           email: formData.email,
           message: formData.message,
@@ -195,7 +261,6 @@ const Portfolio = () => {
               Information Technology
             </span>
             
-           {/* PINALITAN: Ipinilit ang text-5xl (para sa angas), pero organisado gamit ang leading-none at whitespace-nowrap */}
             <motion.h1 
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 md:mb-8 uppercase tracking-tighter sm:tracking-[0.1em] leading-none cursor-default flex flex-col items-center drop-shadow-xl dark:drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
               initial="hidden"
@@ -205,7 +270,6 @@ const Portfolio = () => {
                 visible: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.1 } }
               }}
             >
-              {/* whitespace-nowrap ay kailangan dito para hindi mahulog ang letters */}
               <span className="block text-white transition-colors overflow-visible whitespace-nowrap pb-1">
                 {"SHEM ISAIAH".split("").map((char, index) => (
                   <motion.span 
@@ -227,7 +291,6 @@ const Portfolio = () => {
                 ))}
               </span>
 
-              {/* mt-3 para sa organisadong gap sa pagitan ng two lines */}
               <span className="block text-rose-700 dark:text-rose-500 mt-3 md:mt-4 overflow-visible pb-2 md:pb-4 whitespace-nowrap">
                 {"DELA VEGA".split("").map((char, index) => (
                   <motion.span 
@@ -328,6 +391,70 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto px-6 w-full text-center">
           <h2 className="text-3xl font-bold mb-12 italic text-black dark:text-white">Technical Proficiency</h2>
           <SkillsTicker />
+        </div>
+      </section>
+
+      {/* --- AUTOMATION & ANALYTICS SHOWCASE (NEW) --- */}
+      <section className="py-24 px-6 relative overflow-hidden bg-white/30 dark:bg-black/10 border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12 text-center lg:text-left">
+              <h2 className="text-sm font-bold text-rose-800 tracking-[0.2em] uppercase mb-4 flex items-center justify-center lg:justify-start gap-2">
+                <Sparkles size={16} /> Applied Expertise
+              </h2>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-tighter">
+                Automation & Analytics
+              </h3>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center bg-gray-50 dark:bg-neutral-900/40 p-6 sm:p-10 rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-xl">
+            {/* LEFT: SLIDESHOW IMAGE */}
+            <div className="w-full lg:w-3/5 relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-black group">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={autoIndex}
+                  src={automationSlides[autoIndex].img}
+                  alt={automationSlides[autoIndex].title}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                />
+              </AnimatePresence>
+            </div>
+
+            {/* RIGHT: DESCRIPTION BESIDE IT */}
+            <div className="w-full lg:w-2/5 flex flex-col justify-center min-h-[250px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={autoIndex}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <h4 className="text-2xl sm:text-3xl font-black text-black dark:text-white mb-4 leading-tight">
+                    {automationSlides[autoIndex].title}
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed font-light mb-8">
+                    {automationSlides[autoIndex].desc}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Navigation / Progress indicators */}
+              <div className="flex gap-3 mt-auto pt-6 border-t border-gray-200 dark:border-gray-800">
+                {automationSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setAutoIndex(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 ${autoIndex === idx ? 'w-12 bg-rose-800' : 'w-4 bg-gray-300 dark:bg-neutral-700 hover:bg-gray-400 dark:hover:bg-neutral-600'}`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
