@@ -260,7 +260,7 @@ const Portfolio = () => {
         <motion.div className="max-w-5xl mx-auto text-center relative z-10 pointer-events-auto" style={{ y: textY, opacity: textOpacity }}>
           <motion.div {...fadeInUp}>
             <span className="px-4 py-1.5 rounded-full bg-rose-100/80 dark:bg-rose-950/50 backdrop-blur-md text-rose-800 dark:text-rose-400 text-sm font-semibold mb-6 inline-block border border-rose-200 dark:border-rose-900 shadow-sm">
-              Information Technology
+              UI/UX Design | Python Development | Automation & Analytics
             </span>
             
             <motion.h1 
