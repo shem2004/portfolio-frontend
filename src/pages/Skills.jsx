@@ -14,7 +14,7 @@ const Skills = () => {
       { name: "Power Automate", img: "https://msicons.com/icons/power-platform/PowerAutomate_scalable.svg" },
       { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" },
       { name: "IDP & AI Builder", img: "https://img.icons8.com/color/480/artificial-intelligence.png" },
-      { name: "Workflow Orchestration", img: "https://img.icons8.com/color/480/flow-chart.png" },
+      { name: "Workflow Orchestration", img: "" },
     ],
     Frontend: [
       { name: "React / JSX", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
