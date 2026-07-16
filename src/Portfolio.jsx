@@ -362,7 +362,7 @@ const Portfolio = () => {
               </motion.p>
             </div>
             <motion.div variants={staggerItem} className="grid grid-cols-2 gap-4 sm:gap-6 mt-10 border-t border-gray-200 dark:border-gray-800 pt-8 text-left">
-              <div><p className="text-xl sm:text-2xl font-bold text-black dark:text-white">1.19</p><p className="text-xs sm:text-sm text-gray-500 uppercase tracking-wide">GWA Average</p></div>
+              <div><p className="text-xl sm:text-2xl font-bold text-black dark:text-white">1.25</p><p className="text-xs sm:text-sm text-gray-500 uppercase tracking-wide">GWA Average</p></div>
               <div><p className="text-xl sm:text-2xl font-bold text-black dark:text-white">TESDA NCII & NCIII</p><p className="text-xs sm:text-sm text-gray-500 uppercase tracking-wide">Certified Pro</p></div>
             </motion.div>
           </motion.div>
