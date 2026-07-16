@@ -179,6 +179,8 @@ const CubeBackground = ({ maskStyle }) => {
 const Portfolio = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
+  
+  // State para sa Fullscreen Design & Automation Images
   const [selectedDesign, setSelectedDesign] = useState(null);
   
   // State for Automation Slideshow
@@ -190,11 +192,11 @@ const Portfolio = () => {
   const textY = useTransform(scrollY, [0, 800], [0, -150]); 
   const textOpacity = useTransform(scrollY, [0, 400], [1, 0]); 
 
-  // Automation Slideshow Auto-play
+  // Automation Slideshow Auto-play (Slowed down to 7 seconds)
   useEffect(() => {
     const autoTimer = setInterval(() => {
       setAutoIndex((prev) => (prev + 1) % automationSlides.length);
-    }, 4000); 
+    }, 7000); 
     return () => clearInterval(autoTimer);
   }, []);
 
@@ -407,8 +409,16 @@ const Portfolio = () => {
           </div>
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center bg-gray-50 dark:bg-neutral-900/40 p-6 sm:p-10 rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-xl">
-            {/* LEFT: SLIDESHOW IMAGE */}
-            <div className="w-full lg:w-3/5 relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-black group">
+            {/* LEFT: SLIDESHOW IMAGE (Now Clickable) */}
+            <div 
+              className="w-full lg:w-3/5 relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-black group cursor-pointer"
+              onClick={() => setSelectedDesign({
+                 fullImg: automationSlides[autoIndex].img,
+                 title: automationSlides[autoIndex].title,
+                 expl: automationSlides[autoIndex].desc,
+                 tag: 'Automation Showcase'
+              })}
+            >
               <AnimatePresence mode="wait">
                 <motion.img
                   key={autoIndex}
@@ -536,7 +546,7 @@ const Portfolio = () => {
         </div>
       </footer>
 
-      {/* DESIGN MODAL/POP-OUT */}
+      {/* DESIGN & AUTOMATION POP-OUT MODAL */}
       <AnimatePresence>
         {selectedDesign && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedDesign(null)} className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm p-4 flex items-center justify-center cursor-pointer">
@@ -553,7 +563,11 @@ const Portfolio = () => {
                     <div className="md:col-span-2 space-y-3 sm:space-y-4 pt-2 sm:pt-4">
                         <h3 className="text-2xl sm:text-3xl font-black text-black dark:text-white tracking-tighter uppercase">{selectedDesign.title}</h3>
                         <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-light">{selectedDesign.expl}</p>
-                        <div className="pt-4 sm:pt-6"><span className="px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/30 text-rose-800 dark:text-rose-500 text-xs font-semibold border border-rose-200 dark:border-rose-900">Design Sample</span></div>
+                        <div className="pt-4 sm:pt-6">
+                            <span className="px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/30 text-rose-800 dark:text-rose-500 text-xs font-semibold border border-rose-200 dark:border-rose-900">
+                                {selectedDesign.tag || "Design Sample"}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </motion.div>
