@@ -44,11 +44,11 @@ const Skills = () => {
     "Data & Automation": [
     { 
       name: "Power Automate", 
-      img: "https://img.icons8.com/color/144/microsoft-power-automate.png" 
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Microsoft_Power_Automate_logo.svg/1200px-Microsoft_Power_Automate_logo.svg.png" 
     },
     { 
       name: "Power BI", 
-      img: "https://img.icons8.com/color/144/power-bi.png" 
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/1200px-New_Power_BI_Logo.svg.png" 
     }
   ]
   };
