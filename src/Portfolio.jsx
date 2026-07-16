@@ -192,7 +192,7 @@ const Portfolio = () => {
         <motion.div className="max-w-5xl mx-auto text-center relative z-10 pointer-events-auto" style={{ y: textY, opacity: textOpacity }}>
           <motion.div {...fadeInUp}>
             <span className="px-4 py-1.5 rounded-full bg-rose-100/80 dark:bg-rose-950/50 backdrop-blur-md text-rose-800 dark:text-rose-400 text-sm font-semibold mb-6 inline-block border border-rose-200 dark:border-rose-900 shadow-sm">
-              IT Student @ PUP Sta. Mesa
+              Information Technology Graduate
             </span>
             
            {/* PINALITAN: Ipinilit ang text-5xl (para sa angas), pero organisado gamit ang leading-none at whitespace-nowrap */}
@@ -259,7 +259,7 @@ const Portfolio = () => {
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shemisaiah0@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(159,18,57,0.4)] transition-all shadow-lg">
                   Let's Talk <Mail size={18} />
                 </a>
-                <a href="/cv/delavega_cv.pdf" download="Shem-Isaiah-Dela-Vega-CV.pdf" className="px-8 py-4 rounded-2xl font-bold border-2 border-gray-400 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all text-center hover:scale-105 text-black dark:text-white bg-white/50 dark:bg-black/50 backdrop-blur-sm shadow-lg">
+                <a href="/cv/DELAVEGA, SHEM ISAIAH_CV.pdf" download="Shem-Isaiah-Dela-Vega-CV.pdf" className="px-8 py-4 rounded-2xl font-bold border-2 border-gray-400 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all text-center hover:scale-105 text-black dark:text-white bg-white/50 dark:bg-black/50 backdrop-blur-sm shadow-lg">
                   Download CV
                 </a>
               </div>
@@ -287,7 +287,7 @@ const Portfolio = () => {
             <motion.h3 variants={staggerItem} className="text-3xl sm:text-4xl font-bold mb-6 leading-tight inline-block">BRIDGING TECHNICAL RIGOR WITH CREATIVE VISION</motion.h3>
             <div className="space-y-6 text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed text-justify">
               <motion.p variants={staggerItem} className="group transition-all duration-300" style={{ textJustify: 'inter-word', letterSpacing: '0.01em' }}>
-              I am <strong className="text-black dark:text-white inline-block group-hover:scale-105 group-hover:text-rose-800 dark:group-hover:text-rose-500 transition-all duration-300">an Information Technology</strong> student at the <strong className="text-black dark:text-white inline-block group-hover:scale-105 group-hover:text-rose-800 dark:group-hover:text-rose-500 transition-all duration-300">Polytechnic University of the Philippines (PUP) Sta. Mesa</strong>, driven by a passion for creating systems that are as functional as they are elegant.
+              I was <strong className="text-black dark:text-white inline-block group-hover:scale-105 group-hover:text-rose-800 dark:group-hover:text-rose-500 transition-all duration-300">a Information Technology</strong> student at the <strong className="text-black dark:text-white inline-block group-hover:scale-105 group-hover:text-rose-800 dark:group-hover:text-rose-500 transition-all duration-300">Polytechnic University of the Philippines (PUP) Sta. Mesa</strong>, driven by a passion for creating systems that are as functional as they are elegant.
               </motion.p>
               <motion.p variants={staggerItem} className="group transition-all duration-300" style={{ textJustify: 'inter-word', letterSpacing: '0.01em' }}>
                   My background is built on a foundation of academic excellence, maintaining a <strong className="text-black dark:text-white inline-block group-hover:scale-105 group-hover:text-rose-800 dark:group-hover:text-rose-500 transition-all duration-300">President's Lister</strong> standing with a strong emphasis on problem-solving and collaboration. Beyond the classroom, I’ve completed a <strong className="text-black dark:text-white inline-block group-hover:scale-105 group-hover:text-rose-800 dark:group-hover:text-rose-500 transition-all duration-300">500-hour training requirement</strong> at <strong className="text-black dark:text-white inline-block group-hover:scale-105 group-hover:text-rose-800 dark:group-hover:text-rose-500 transition-all duration-300">Adventus IT Services</strong>, where I refined my skills in <strong className="text-black dark:text-white inline-block group-hover:scale-105 group-hover:text-rose-800 dark:group-hover:text-rose-500 transition-all duration-300">User Acceptance Testing (UAT)</strong> and hardware diagnostics. Additionally, I work part-time as a <strong className="text-black dark:text-white inline-block group-hover:scale-105 group-hover:text-rose-800 dark:group-hover:text-rose-500 transition-all duration-300">Data Management Assistant</strong>, responsible for the accurate data entry and reconciliation of high-volume financial logs into cloud-based systems, maintaining 100% accuracy in automated reporting across multiple business units.
@@ -398,11 +398,11 @@ const Portfolio = () => {
             <div className="space-y-4 flex flex-col items-center md:items-start">
               <p className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><Mail size={18}/> shemisaiah0@gmail.com</p>
               <p className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><Phone size={18}/> 09955974186</p>
-              <p className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><MapPin size={18}/> Imus, Cavite</p>
+              <p className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><MapPin size={18}/> Bacoor, Cavite</p>
             </div>
           </div>
           <div className="md:text-right flex flex-col items-center md:items-end">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 md:mb-6 italic text-white">Polytechnic University of the Philippines</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 md:mb-6 italic text-white">Shem Isaiah A. Dela Vega</h3>
             <p className="text-gray-400 uppercase tracking-widest text-xs sm:text-sm">Information Technology</p>
             <p className="text-rose-600 mt-2 font-mono">PRESIDENT'S LISTER</p>
           </div>
