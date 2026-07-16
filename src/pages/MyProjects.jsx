@@ -84,12 +84,70 @@ const projectsData = [
     }
 ];
 
+const automationSlides = [
+  { 
+    id: 1, 
+    img: '/samples/idp1.png', // <-- Change this to your actual image path
+    title: 'Intelligent Document Processing', 
+    desc: 'Automated data extraction workflow routing using AI Builder.' 
+  },
+  { 
+    id: 2, 
+    img: '/samples/idp2.png', // <-- Change this to your actual image path
+    title: 'Intelligent Document Processing', 
+    desc: 'Automated data extraction workflow routing using AI Builder.' 
+  },
+  { 
+    id: 3, 
+    img: '/samples/bi1.png', // <-- Change this to your actual image path
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
+  },
+   { 
+    id: 4, 
+    img: '/samples/bi2.png', // <-- Change this to your actual image path
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
+  },
+  { 
+    id: 5, 
+    img: '/samples/bi3.png', // <-- Change this to your actual image path
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
+  },
+  { 
+    id: 6, 
+    img: '/samples/bi4.png', // <-- Change this to your actual image path
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
+  },
+  { 
+    id: 7, 
+    img: '/samples/pa1.png', // <-- Change this to your actual image path
+    title: 'Enterprise Workflow Orchestration', 
+    desc: 'End-to-end task routing and polling triggers in Power Automate.' 
+  },
+  { 
+    id: 8, 
+    img: '/samples/pa2.png', // <-- Change this to your actual image path
+    title: 'Enterprise Workflow Orchestration', 
+    desc: 'End-to-end task routing and polling triggers in Power Automate.' 
+  },
+  { 
+    id: 9, 
+    img: '/samples/pa3.png', // <-- Change this to your actual image path
+    title: 'Enterprise Workflow Orchestration', 
+    desc: 'End-to-end task routing and polling triggers in Power Automate.' 
+  }
+];
+
 const Projects = () => {
   const [liveDesigns, setLiveDesigns] = useState(designProjects);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedDesign, setSelectedDesign] = useState(null);
   const [isAlbumOpen, setIsAlbumOpen] = useState(false);
   const [selectedAlbumMedia, setSelectedAlbumMedia] = useState(null);
+  const [autoIndex, setAutoIndex] = useState(0);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -227,6 +285,48 @@ const Projects = () => {
             </div>
         </div>
       </motion.div>
+
+      {/* --- 3. AUTOMATION & ANALYTICS SLIDESHOW --- */}
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-16 mt-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3">
+                <Sparkles className="text-rose-800" size={32} /> AUTOMATION & ANALYTICS SHOWCASE
+            </h2>
+
+            <div className="relative w-full max-w-5xl mx-auto h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-black group">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={autoIndex}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0"
+                >
+                  <img 
+                    src={automationSlides[autoIndex].img} 
+                    alt={automationSlides[autoIndex].title} 
+                    className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500" 
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6 md:p-10">
+                    <h3 className="text-2xl md:text-3xl font-black text-white mb-2">{automationSlides[autoIndex].title}</h3>
+                    <p className="text-gray-300 text-sm md:text-base font-light">{automationSlides[autoIndex].desc}</p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Navigation Dots */}
+              <div className="absolute bottom-6 right-8 flex gap-3 z-20">
+                {automationSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setAutoIndex(idx)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${autoIndex === idx ? 'bg-rose-600 scale-150' : 'bg-white/50 hover:bg-white'}`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+        </div>
 
       {/* --- DESIGN MODAL/POP-OUT PARA SA PAG-CLICK SA 3D IMAGE MISMO --- */}
       <AnimatePresence>
