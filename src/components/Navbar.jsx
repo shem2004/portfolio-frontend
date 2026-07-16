@@ -56,10 +56,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         {/* Desktop Links - PINALAKI ANG TEXT (text-base) AT GAP (gap-10) */}
         <div className="hidden md:flex items-center gap-10 font-medium text-base text-gray-600 dark:text-gray-400">
           <Link to="/" className={isActive('/')}>Home</Link>
-          <Link to="/projects" className={isActive('/projects')}>Projects</Link>
           <Link to="/experience" className={isActive('/experience')}>Experience</Link>
-          <Link to="/achievements" className={isActive('/achievements')}>Achievements</Link>
+          <Link to="/achievements" className={isActive('/achievements')}>Certifications</Link>
           <Link to="/skills" className={isActive('/skills')}>Skills</Link>
+          <Link to="/projects" className={isActive('/projects')}>Projects</Link>
           <Link to="/education" className={isActive('/education')}>Education</Link>
         </div>
 
