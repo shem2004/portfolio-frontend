@@ -28,7 +28,6 @@ const albumMedia = [
   { id: 23, type: 'image', thumb: '/samples/Modern6.png', src: '/samples/Modern6.png', title: 'Digital Illustration', desc: 'Guggnheim Museum (Medibang Paint Pro).' },
 ];
 
-// --- PINALITAN ANG EXPL PROPERTIES PARA HINDI NA MAGKAHIWALAY ANG TEXT AT ICON ---
 const designProjects = [
   { id: 1, video: '/videos/AirPods_Animation.mp4', src: '/videos/AirPods_Animation.mp4', title: '3D Animation', expl: <>Modelled and rendered in Blender 5.0 for a personal advertisement project. Features a modern and techy vibe of 3D animation. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> 3D Modeling</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Blender</span></div></> },
   { id: 2, img: '/samples/sydney.png', fullImg: '/samples/sydney.png', title: 'Digital Illustration', expl: <>A Sydney Opera House concept art drawn purely in Medibang Paint Pro. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Digital Illustration</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><Maximize2 size={16}/> Medibang Paint Pro</span></div></> },
@@ -87,55 +86,55 @@ const projectsData = [
 const automationSlides = [
   { 
     id: 1, 
-    img: '/samples/idp1.png', // <-- Change this to your actual image path
+    img: '/samples/idp1.png', 
     title: 'Intelligent Document Processing', 
     desc: 'Automated data extraction workflow routing using AI Builder.' 
   },
   { 
     id: 2, 
-    img: '/samples/idp2.png', // <-- Change this to your actual image path
+    img: '/samples/idp2.png', 
     title: 'Intelligent Document Processing', 
     desc: 'Automated data extraction workflow routing using AI Builder.' 
   },
   { 
     id: 3, 
-    img: '/samples/bi1.png', // <-- Change this to your actual image path
+    img: '/samples/bi1.png', 
     title: 'IT Helpdesk Analytics Dashboard', 
     desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
   },
    { 
     id: 4, 
-    img: '/samples/bi2.png', // <-- Change this to your actual image path
+    img: '/samples/bi2.png', 
     title: 'IT Helpdesk Analytics Dashboard', 
     desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
   },
   { 
     id: 5, 
-    img: '/samples/bi3.png', // <-- Change this to your actual image path
+    img: '/samples/bi3.png', 
     title: 'IT Helpdesk Analytics Dashboard', 
     desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
   },
   { 
     id: 6, 
-    img: '/samples/bi4.png', // <-- Change this to your actual image path
+    img: '/samples/bi4.png', 
     title: 'IT Helpdesk Analytics Dashboard', 
     desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
   },
   { 
     id: 7, 
-    img: '/samples/pa1.png', // <-- Change this to your actual image path
+    img: '/samples/pa1.png', 
     title: 'Enterprise Workflow Orchestration', 
     desc: 'End-to-end task routing and polling triggers in Power Automate.' 
   },
   { 
     id: 8, 
-    img: '/samples/pa2.png', // <-- Change this to your actual image path
+    img: '/samples/pa2.png', 
     title: 'Enterprise Workflow Orchestration', 
     desc: 'End-to-end task routing and polling triggers in Power Automate.' 
   },
   { 
     id: 9, 
-    img: '/samples/pa3.png', // <-- Change this to your actual image path
+    img: '/samples/pa3.png', 
     title: 'Enterprise Workflow Orchestration', 
     desc: 'End-to-end task routing and polling triggers in Power Automate.' 
   }
@@ -179,6 +178,13 @@ const Projects = () => {
     }, 3500); 
     return () => clearInterval(timer);
   }, [liveDesigns.length]);
+
+  useEffect(() => {
+    const autoTimer = setInterval(() => {
+      setAutoIndex((prev) => (prev + 1) % automationSlides.length);
+    }, 4000); 
+    return () => clearInterval(autoTimer);
+  }, []);
 
   return (
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen overflow-hidden">
@@ -267,32 +273,21 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* --- 2. TECH & DEV PROJECTS --- */}
-        <div className="border-t border-gray-200 dark:border-gray-800 pt-16 mt-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3">
-                <Code2 className="text-rose-800" size={32} /> DESIGN / DEVELOPMMENT EXPERIENCE
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projectsData.map((item, index) => (
-                <ProjectCard 
-                    key={index}
-                    title={item.title} 
-                    type={item.type}
-                    desc={item.desc}
-                    tags={item.tags}
-                />
-            ))}
-            </div>
-        </div>
-      </motion.div>
-
-      {/* --- 3. AUTOMATION & ANALYTICS SLIDESHOW --- */}
+        {/* --- 2. AUTOMATION & ANALYTICS SHOWCASE (MOVED TO TOP AND MADE CLICKABLE) --- */}
         <div className="border-t border-gray-200 dark:border-gray-800 pt-16 mt-16">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3">
                 <Sparkles className="text-rose-800" size={32} /> AUTOMATION & ANALYTICS SHOWCASE
             </h2>
 
-            <div className="relative w-full max-w-5xl mx-auto h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-black group">
+            <div 
+              className="relative w-full max-w-5xl mx-auto h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-black group cursor-pointer"
+              onClick={() => setSelectedAlbumMedia({ 
+                type: 'image', 
+                src: automationSlides[autoIndex].img, 
+                title: automationSlides[autoIndex].title, 
+                desc: automationSlides[autoIndex].desc 
+              })}
+            >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={autoIndex}
@@ -319,7 +314,10 @@ const Projects = () => {
                 {automationSlides.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setAutoIndex(idx)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setAutoIndex(idx);
+                    }}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${autoIndex === idx ? 'bg-rose-600 scale-150' : 'bg-white/50 hover:bg-white'}`}
                     aria-label={`Go to slide ${idx + 1}`}
                   />
@@ -327,6 +325,25 @@ const Projects = () => {
               </div>
             </div>
         </div>
+
+        {/* --- 3. TECH & DEV PROJECTS --- */}
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-16 mt-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3">
+                <Code2 className="text-rose-800" size={32} /> DESIGN / DEVELOPMENT EXPERIENCE
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projectsData.map((item, index) => (
+                <ProjectCard 
+                    key={index}
+                    title={item.title} 
+                    type={item.type}
+                    desc={item.desc}
+                    tags={item.tags}
+                />
+            ))}
+            </div>
+        </div>
+      </motion.div>
 
       {/* --- DESIGN MODAL/POP-OUT PARA SA PAG-CLICK SA 3D IMAGE MISMO --- */}
       <AnimatePresence>
@@ -419,7 +436,7 @@ const Projects = () => {
             )}
         </AnimatePresence>
 
-      {/* --- FULLSCREEN MEDIA VIEWER PARA SA ALBUM --- */}
+      {/* --- FULLSCREEN MEDIA VIEWER PARA SA ALBUM AT AUTOMATION IMAGES --- */}
       <AnimatePresence>
         {selectedAlbumMedia && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedAlbumMedia(null)} className="fixed inset-0 z-[110] bg-black/95 backdrop-blur-md p-4 md:p-8 flex items-center justify-center">
