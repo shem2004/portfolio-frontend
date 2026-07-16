@@ -171,8 +171,8 @@ function App() {
               <Route path="/achievements" element={<Achievements />} />
               <Route path="/education" element={<Education />} />
               <Route path="/skills" element={<Skills />} />
-              <Route path="/experience" element={<Experience />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/experience" element={<Experience />} />
               <Route path="/admin" element={<Admin />} />
             </Routes>
           
