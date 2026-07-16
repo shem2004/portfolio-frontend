@@ -192,11 +192,11 @@ const Portfolio = () => {
   const textY = useTransform(scrollY, [0, 800], [0, -150]); 
   const textOpacity = useTransform(scrollY, [0, 400], [1, 0]); 
 
-  // Automation Slideshow Auto-play (Slowed down to 7 seconds)
+  // Automation Slideshow Auto-play (Slowed down to 10 seconds)
   useEffect(() => {
     const autoTimer = setInterval(() => {
       setAutoIndex((prev) => (prev + 1) % automationSlides.length);
-    }, 7000); 
+    }, 10000); 
     return () => clearInterval(autoTimer);
   }, []);
 
@@ -546,28 +546,39 @@ const Portfolio = () => {
         </div>
       </footer>
 
-      {/* DESIGN & AUTOMATION POP-OUT MODAL */}
+      {/* --- BAGONG CINEMATIC POP-OUT MODAL PARA SA LAHAT --- */}
       <AnimatePresence>
         {selectedDesign && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedDesign(null)} className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm p-4 flex items-center justify-center cursor-pointer">
-            <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} transition={{ type: "spring", damping: 20, stiffness: 300 }} onClick={(e) => e.stopPropagation()} className="bg-white dark:bg-neutral-950 rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-gray-800 shadow-2xl p-6 sm:p-8 relative cursor-default">
-                <button onClick={() => setSelectedDesign(null)} className="absolute top-4 sm:top-6 right-4 sm:right-6 p-2 rounded-full bg-gray-100 dark:bg-neutral-900 text-gray-500 hover:text-black dark:hover:text-white transition-colors z-10"><X size={20}/></button>
-                <div className="grid md:grid-cols-5 gap-6 sm:gap-10 mt-8 sm:mt-6">
-                    <div className="md:col-span-3 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-black flex items-center justify-center min-h-[300px]">
-                        {selectedDesign.video ? (
-                            <video src={selectedDesign.video} controls autoPlay loop className="w-full h-auto object-contain max-h-[60vh]" />
-                        ) : (
-                            <img src={selectedDesign.fullImg} alt={selectedDesign.title} className="w-full h-auto object-cover" />
-                        )}
-                    </div>
-                    <div className="md:col-span-2 space-y-3 sm:space-y-4 pt-2 sm:pt-4">
-                        <h3 className="text-2xl sm:text-3xl font-black text-black dark:text-white tracking-tighter uppercase">{selectedDesign.title}</h3>
-                        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-light">{selectedDesign.expl}</p>
-                        <div className="pt-4 sm:pt-6">
-                            <span className="px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/30 text-rose-800 dark:text-rose-500 text-xs font-semibold border border-rose-200 dark:border-rose-900">
-                                {selectedDesign.tag || "Design Sample"}
-                            </span>
-                        </div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedDesign(null)} className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md p-4 flex items-center justify-center cursor-pointer">
+            <motion.div 
+                initial={{ scale: 0.9, y: 20 }} 
+                animate={{ scale: 1, y: 0 }} 
+                exit={{ scale: 0.9, y: 20 }} 
+                transition={{ type: "spring", damping: 20, stiffness: 300 }} 
+                onClick={(e) => e.stopPropagation()} 
+                className="bg-white dark:bg-neutral-900 rounded-2xl sm:rounded-3xl max-w-6xl w-full max-h-[95vh] flex flex-col overflow-hidden border border-gray-200 dark:border-gray-800 shadow-2xl relative cursor-default"
+            >
+                <button onClick={() => setSelectedDesign(null)} className="absolute top-4 sm:top-6 right-4 sm:right-6 p-2 rounded-full bg-black/50 hover:bg-rose-600 text-white transition-colors z-50 backdrop-blur-md">
+                    <X size={20}/>
+                </button>
+                
+                {/* IMAGE/VIDEO AREA (FULL WIDTH & CINEMATIC) */}
+                <div className="w-full bg-black flex items-center justify-center p-4 sm:p-8 min-h-[40vh] border-b border-gray-200 dark:border-gray-800 relative group">
+                    {selectedDesign.video ? (
+                        <video src={selectedDesign.video} controls autoPlay loop className="max-w-full max-h-[60vh] object-contain rounded-lg" />
+                    ) : (
+                        <img src={selectedDesign.fullImg} alt={selectedDesign.title} className="max-w-full max-h-[60vh] object-contain rounded-lg" />
+                    )}
+                </div>
+
+                {/* TEXT AREA SA ILALIM */}
+                <div className="p-6 sm:p-10 overflow-y-auto">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black dark:text-white tracking-tighter uppercase mb-4">{selectedDesign.title}</h3>
+                    <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-light">{selectedDesign.expl}</p>
+                    <div className="pt-6">
+                        <span className="px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/30 text-rose-800 dark:text-rose-500 text-xs font-semibold border border-rose-200 dark:border-rose-900">
+                            {selectedDesign.tag || "Design Sample"}
+                        </span>
                     </div>
                 </div>
             </motion.div>
