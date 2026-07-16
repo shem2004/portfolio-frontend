@@ -56,10 +56,26 @@ const Experience = () => {
 
             {/* Personal Project */}
             <ProjectCard 
-              title="IT Helpdesk Analytics Dashboard" 
+              title="IT Analytics Dashboard" 
               type="Data Analytics & Reporting"
               desc="Developed an IT Helpdesk reporting dashboard using Power BI Desktop. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values, utilizing interactive Donut Charts and KPI cards to track ticket volume by priority class."
               tags={["Power BI", "Power Query", "Data Visualization", "DAX"]}
+            />
+
+             {/* Automation Project 1 */}
+            <ProjectCard 
+              title="Intelligent Document Processing (IDP)" 
+              type="Intelligent Automation"
+              desc="Engineered an Intelligent Document Processing solution using AI Builder's document processing models. Automated the extraction of high-volume data from unstructured documents, significantly reducing manual data entry and improving accuracy."
+              tags={["AI Builder", "IDP", "Microsoft Power Platform", "Automation"]}
+            />
+
+            {/* Automation Project 2 */}
+            <ProjectCard 
+              title="Enterprise Workflow Orchestration" 
+              type="Workflow Automation"
+              desc="Designed and deployed end-to-end workflow orchestration using Microsoft Power Automate. Built complex logic to automate inter-departmental task routing, polling triggers for real-time monitoring, and dynamic data synchronization across cloud platforms."
+              tags={["Power Automate", "Workflow Orchestration", "Cloud Integration", "API"]}
             />
 
         </div>

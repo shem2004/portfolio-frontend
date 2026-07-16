@@ -468,7 +468,9 @@ const SkillsTicker = () => {
   const skillsData = {
     Automation: [
       { name: "Power Automate", img: "https://msicons.com/icons/power-platform/PowerAutomate_scalable.svg" },
-      { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" }
+      { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" },
+      { name: "IDP & AI Builder", img: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Microsoft_AI_logo.svg" },
+      { name: "Workflow Orchestration", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoft/microsoft-original.svg" },
     ],
     Frontend: [
       { name: "React / JSX", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
