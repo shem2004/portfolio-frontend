@@ -42,8 +42,14 @@ const Skills = () => {
       { name: "Medibang Pro", img: "https://cdn.worldvectorlogo.com/logos/wacom-1.svg" } 
     ],
     "Data & Automation": [
-    { name: "Power Automate", img: "https://cdn.worldvectorlogo.com/logos/microsoft-power-automate.svg" },
-    { name: "Power BI", img: "https://cdn.worldvectorlogo.com/logos/power-bi-1.svg" }
+    { 
+      name: "Power Automate", 
+      img: "https://img.icons8.com/color/144/microsoft-power-automate.png" 
+    },
+    { 
+      name: "Power BI", 
+      img: "https://img.icons8.com/color/144/power-bi.png" 
+    }
   ]
   };
 
