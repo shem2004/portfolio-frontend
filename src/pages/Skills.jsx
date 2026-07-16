@@ -41,16 +41,10 @@ const Skills = () => {
       { name: "Canva", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" },
       { name: "Medibang Pro", img: "https://cdn.worldvectorlogo.com/logos/wacom-1.svg" } 
     ],
-    "Data & Automation": [
-    { 
-      name: "Power Automate", 
-      img: "https://cdn.worldvectorlogo.com/logos/microsoft-power-automate.svg"
-    },
-    { 
-      name: "Power BI", 
-      img: "https://img.icons8.com/color/144/power-bi.png" 
-    }
-  ]
+    Automation: [
+      { name: "Power Automate", img: "https://cdn.worldvectorlogo.com/logos/microsoft-power-automate.svg" },
+      { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" }
+    ]
   };
 
   const currentItems = activeTab === 'All'
