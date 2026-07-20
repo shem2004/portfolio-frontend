@@ -187,6 +187,8 @@ const Projects = () => {
             </div>
         </div>
 
+        
+
         {/* --- 3. TECH & DEV PROJECTS --- */}
         <div className="border-t border-gray-200 dark:border-gray-800 pt-16 mt-16">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3"><Code2 className="text-rose-800" size={32} /> DESIGN / DEVELOPMENT EXPERIENCE</h2>
