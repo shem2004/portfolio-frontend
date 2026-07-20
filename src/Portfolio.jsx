@@ -607,7 +607,7 @@ const Portfolio = () => {
                                 onClick={(e) => e.stopPropagation()} // Para hindi magsara yung modal pag kinlick
                                 className="flex items-center gap-2 px-5 py-2 rounded-full bg-rose-800 hover:bg-rose-700 text-white text-sm font-bold shadow-[0_0_15px_rgba(159,18,57,0.5)] hover:shadow-[0_0_25px_rgba(159,18,57,0.8)] hover:scale-105 transition-all"
                             >
-                                <Download size={16} /> Download Sample File
+                                <Download size={16} /> Download File
                             </a>
                         )}
                     </div>
