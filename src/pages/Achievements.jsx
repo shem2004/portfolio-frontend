@@ -9,101 +9,223 @@ const Achievements = () => {
   // State para sa mini-gallery index kapag maraming pictures (tulad ng HP Programs)
   const [certGalleryIndex, setCertGalleryIndex] = useState(0);
 
+  // Framer Motion animation variants for staggered cards
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  };
+  const staggerItem = {
+    hidden: { opacity: 0, y: 30, filter: 'blur(5px)' },
+    show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
   return (
     <div className="pt-32 pb-20 px-6 max-w-5xl mx-auto min-h-screen">
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial="hidden"
+        animate="show"
+        viewport={{ once: true, amount: 0.1 }}
       >
-        <h1 className="text-4xl md:text-6xl font-black mb-12 text-center text-black dark:text-white">Certifications</h1>
+        <motion.h1 
+            variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { delay: 0.2 } } }} 
+            className="text-4xl md:text-6xl font-black mb-16 text-center text-black dark:text-white uppercase tracking-tight"
+        >
+            Certifications
+        </motion.h1>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* --- GRID OF CARDS (With Staggered Animation) --- */}
+        <motion.div 
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 gap-8"
+        >
             {/* TESDA NC II */}
-            <div 
-              className="p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-colors group cursor-pointer"
+            <motion.div 
+              variants={staggerItem}
+              whileHover={{ y: -8, boxShadow: "0px 20px 40px rgba(0,0,0,0.1)" }}
+              className="p-6 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-all group cursor-pointer flex flex-col"
               onClick={() => setSelectedCert('/certifications/nc2.png')} 
             >
-                <div className="flex items-center gap-3 mb-4">
+                {/* PREVIEW IMAGE CONTAINER */}
+                <div className="aspect-video rounded-2xl overflow-hidden mb-6 border border-gray-200 dark:border-gray-800">
+                    <motion.img 
+                      src="/certifications/nc2.png" 
+                      alt="TESDA NC II Preview" 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                </div>
+                {/* DETAILS BELOW IMAGE */}
+                <div className="flex items-center gap-3 mb-4 flex-wrap">
                     <CheckCircle className="text-black dark:text-white" />
                     <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-rose-800 transition-colors">TESDA NC II</h3>
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Computer Systems Servicing</p>
                 <p className="text-gray-500 text-sm">Certified competent in computer hardware servicing and network configuration.</p>
-            </div>
+            </motion.div>
 
             {/* TESDA NC III */}
-            <div 
-              className="p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-colors group cursor-pointer"
+            <motion.div 
+              variants={staggerItem}
+              whileHover={{ y: -8, boxShadow: "0px 20px 40px rgba(0,0,0,0.1)" }}
+              className="p-6 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-all group cursor-pointer flex flex-col"
               onClick={() => setSelectedCert('/certifications/nc3.png')} 
             >
-                 <div className="flex items-center gap-3 mb-4">
+                 {/* PREVIEW IMAGE CONTAINER */}
+                <div className="aspect-video rounded-2xl overflow-hidden mb-6 border border-gray-200 dark:border-gray-800">
+                    <motion.img 
+                      src="/certifications/nc3.png" 
+                      alt="TESDA NC III Preview" 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                </div>
+                 {/* DETAILS BELOW IMAGE */}
+                 <div className="flex items-center gap-3 mb-4 flex-wrap">
                     <CheckCircle className="text-black dark:text-white" />
                     <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-rose-800 transition-colors">TESDA NC III</h3>
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Visual Graphics Designing</p>
                 <p className="text-gray-500 text-sm">Advanced certification for complex designing and UI/UX interface.</p>
-            </div>
+            </motion.div>
 
             {/* YZNAL CORPORATION PHOTOSHOP */}
-            <div 
-              className="p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-colors group cursor-pointer"
+            <motion.div 
+              variants={staggerItem}
+              whileHover={{ y: -8, boxShadow: "0px 20px 40px rgba(0,0,0,0.1)" }}
+              className="p-6 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-all group cursor-pointer flex flex-col"
               onClick={() => setSelectedCert('/certifications/photoshop.png')} 
             >
-                 <div className="flex items-center gap-3 mb-4">
+                 {/* PREVIEW IMAGE CONTAINER */}
+                <div className="aspect-video rounded-2xl overflow-hidden mb-6 border border-gray-200 dark:border-gray-800">
+                    <motion.img 
+                      src="/certifications/photoshop.png" 
+                      alt="YZNAL Photoshop Preview" 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                </div>
+                 {/* DETAILS BELOW IMAGE */}
+                 <div className="flex items-center gap-3 mb-4 flex-wrap">
                     <CheckCircle className="text-black dark:text-white" />
                     <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-rose-800 transition-colors">YZNAL Corporation</h3>
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Graphic Design using Photoshop</p>
                 <p className="text-gray-500 text-sm">Certificate of Completion in Graphic Design using Adobe Photoshop at YZNAL Corporation.</p>
-            </div>
+            </motion.div>
 
             {/* YZNAL CORPORATION ILLUSTRATOR */}
-            <div 
-              className="p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-colors group cursor-pointer"
+            <motion.div 
+              variants={staggerItem}
+              whileHover={{ y: -8, boxShadow: "0px 20px 40px rgba(0,0,0,0.1)" }}
+              className="p-6 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-all group cursor-pointer flex flex-col"
               onClick={() => setSelectedCert('/certifications/illustrator.png')} 
             >
-                 <div className="flex items-center gap-3 mb-4">
+                 {/* PREVIEW IMAGE CONTAINER */}
+                <div className="aspect-video rounded-2xl overflow-hidden mb-6 border border-gray-200 dark:border-gray-800">
+                    <motion.img 
+                      src="/certifications/illustrator.png" 
+                      alt="YZNAL Illustrator Preview" 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                </div>
+                 {/* DETAILS BELOW IMAGE */}
+                 <div className="flex items-center gap-3 mb-4 flex-wrap">
                     <CheckCircle className="text-black dark:text-white" />
                     <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-rose-800 transition-colors">YZNAL Corporation</h3>
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Graphic Design using Illustrator</p>
                 <p className="text-gray-500 text-sm">Certificate of Completion in Graphic Design using Adobe Illustrator at YZNAL Corporation.</p>
-            </div>
+            </motion.div>
 
-            {/* HP Programs (WITH SLIDESHOW / ARRAY OF IMAGES) */}
-            <div 
-              className="p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-colors group cursor-pointer"
+            {/* HP Programs (ARRAY OF IMAGES) */}
+            <motion.div 
+              variants={staggerItem}
+              whileHover={{ y: -8, boxShadow: "0px 20px 40px rgba(0,0,0,0.1)" }}
+              className="p-6 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-all group cursor-pointer flex flex-col"
               onClick={() => {
-                setCertGalleryIndex(0); // Reset natin sa unang picture
+                setCertGalleryIndex(0); // Reset in case multi-image opened before
                 setSelectedCert([
-                  '/certifications/ai.png', // PALITAN NG TOTOONG IMAGE LINK 1
-                  '/certifications/design.png', // PALITAN NG TOTOONG IMAGE LINK 2
-                  '/certifications/business.png'  // PALITAN NG TOTOONG IMAGE LINK 3
+                  '/certifications/ai.PNG', 
+                  '/certifications/design.PNG', 
+                  '/certifications/business.PNG'
                 ]);
               }} 
             >
-                 <div className="flex items-center gap-3 mb-4">
+                 {/* PREVIEW IMAGE CONTAINER (Shows first image) */}
+                <div className="aspect-video rounded-2xl overflow-hidden mb-6 border border-gray-200 dark:border-gray-800">
+                    <motion.img 
+                      src="/certifications/ai.png" 
+                      alt="HP Programs Preview" 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                </div>
+                 {/* DETAILS BELOW IMAGE */}
+                 <div className="flex items-center gap-3 mb-4 flex-wrap">
                     <CheckCircle className="text-black dark:text-white" />
                     <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-rose-800 transition-colors">HP Programs</h3>
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Design Thinking, Digital Business Skills, and AI for Business Professionals</p>
                 <p className="text-gray-500 text-sm">Certificate of Completion in Design Thinking, Digital Business Skills, and AI for Business Professionals at HP Programs.</p>
-            </div>
+            </motion.div>
+
+            <motion.div 
+              variants={staggerItem}
+              whileHover={{ y: -8, boxShadow: "0px 20px 40px rgba(0,0,0,0.1)" }}
+              className="p-6 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-all group cursor-pointer flex flex-col"
+              onClick={() => setSelectedCert('/certifications/prompting.png')} 
+            >
+                 {/* PREVIEW IMAGE CONTAINER */}
+                <div className="aspect-video rounded-2xl overflow-hidden mb-6 border border-gray-200 dark:border-gray-800">
+                    <motion.img 
+                      src="/certifications/Google Prompting Essentials.png" 
+                      alt="Google Prompting Essentials Preview" 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                </div>
+                 {/* DETAILS BELOW IMAGE */}
+                 <div className="flex items-center gap-3 mb-4 flex-wrap">
+                    <CheckCircle className="text-black dark:text-white" />
+                    <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-rose-800 transition-colors">Google Coursera</h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Google Prompting Essentials</p>
+                <p className="text-gray-500 text-sm">Awarded for demonstrating proficiency in prompt engineering, optimizing AI interactions, and effectively leveraging generative AI tools.</p>
+            </motion.div>
 
             {/* Google Coursera */}
-            <div 
-              className="p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-colors group cursor-pointer"
+            <motion.div 
+              variants={staggerItem}
+              whileHover={{ y: -8, boxShadow: "0px 20px 40px rgba(0,0,0,0.1)" }}
+              className="p-6 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-all group cursor-pointer flex flex-col"
               onClick={() => setSelectedCert('/certifications/ux.png')} 
             >
-                 <div className="flex items-center gap-3 mb-4">
+                 {/* PREVIEW IMAGE CONTAINER */}
+                <div className="aspect-video rounded-2xl overflow-hidden mb-6 border border-gray-200 dark:border-gray-800">
+                    <motion.img 
+                      src="/certifications/ux.png" 
+                      alt="Google UX Preview" 
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                </div>
+                 {/* DETAILS BELOW IMAGE */}
+                 <div className="flex items-center gap-3 mb-4 flex-wrap">
                     <CheckCircle className="text-black dark:text-white" />
                     <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-rose-800 transition-colors">Google Coursera</h3>
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Google UI/UX Design Professional Certificate</p>
                 <p className="text-gray-500 text-sm">Awarded for mastering foundational UI/UX design practices, including user research, wireframing, and prototyping.</p>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
 
       </motion.div>
 
@@ -144,13 +266,25 @@ const Achievements = () => {
                               className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-lg" 
                             />
                             
-                            {/* Navigation Buttons */}
+                            {/* Navigation Buttons (arrows show on hover of group) */}
                             {selectedCert.length > 1 && (
                                 <>
-                                    <button onClick={(e) => { e.stopPropagation(); setCertGalleryIndex(prev => prev === 0 ? selectedCert.length - 1 : prev - 1); }} className="absolute left-2 sm:left-6 p-2 sm:p-3 bg-black/60 hover:bg-rose-600 text-white rounded-full transition-colors z-20 shadow-md">
+                                    <button 
+                                      onClick={(e) => { 
+                                        e.stopPropagation(); 
+                                        setCertGalleryIndex(prev => prev === 0 ? selectedCert.length - 1 : prev - 1); 
+                                      }} 
+                                      className="absolute left-2 sm:left-6 p-2 sm:p-3 bg-black/60 hover:bg-rose-600 text-white rounded-full transition-all z-20 shadow-md md:opacity-0 md:group-hover:opacity-100"
+                                    >
                                         <ChevronLeft size={24} />
                                     </button>
-                                    <button onClick={(e) => { e.stopPropagation(); setCertGalleryIndex(prev => prev === selectedCert.length - 1 ? 0 : prev + 1); }} className="absolute right-2 sm:right-6 p-2 sm:p-3 bg-black/60 hover:bg-rose-600 text-white rounded-full transition-colors z-20 shadow-md">
+                                    <button 
+                                      onClick={(e) => { 
+                                        e.stopPropagation(); 
+                                        setCertGalleryIndex(prev => prev === selectedCert.length - 1 ? 0 : prev + 1); 
+                                      }} 
+                                      className="absolute right-2 sm:right-6 p-2 sm:p-3 bg-black/60 hover:bg-rose-600 text-white rounded-full transition-all z-20 shadow-md md:opacity-0 md:group-hover:opacity-100"
+                                    >
                                         <ChevronRight size={24} />
                                     </button>
                                     
