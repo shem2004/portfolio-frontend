@@ -86,57 +86,27 @@ const projectsData = [
 const automationSlides = [
   { 
     id: 1, 
-    img: '/samples/idp1.png', 
-    title: 'Intelligent Document Processing', 
-    desc: 'Automated data extraction workflow routing using AI Builder.' 
+    img: '/samples/bi1.png', 
+    gallery: ['/samples/bi1.png', '/samples/bi2.png', '/samples/bi3.png', '/samples/bi4.png'],
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.',
+    downloadFile: '/samples/WA_Fn-UseC_-IT-Help-Desk.pbix'
   },
   { 
     id: 2, 
-    img: '/samples/idp2.png', 
+    img: '/samples/idp1.png', 
+    gallery: ['/samples/idp1.png', '/samples/idp2.png'],
     title: 'Intelligent Document Processing', 
-    desc: 'Automated data extraction workflow routing using AI Builder.' 
+    desc: 'Automated data extraction workflow routing using AI Builder. Engineered to significantly reduce manual data entry and improve accuracy across departments.',
+    downloadFile: null
   },
   { 
     id: 3, 
-    img: '/samples/bi1.png', 
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
-  },
-   { 
-    id: 4, 
-    img: '/samples/bi2.png', 
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
-  },
-  { 
-    id: 5, 
-    img: '/samples/bi3.png', 
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
-  },
-  { 
-    id: 6, 
-    img: '/samples/bi4.png', 
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
-  },
-  { 
-    id: 7, 
     img: '/samples/pa1.png', 
+    gallery: ['/samples/pa1.png', '/samples/pa2.png', '/samples/pa3.png'],
     title: 'Enterprise Workflow Orchestration', 
-    desc: 'End-to-end task routing and polling triggers in Power Automate.' 
-  },
-  { 
-    id: 8, 
-    img: '/samples/pa2.png', 
-    title: 'Enterprise Workflow Orchestration', 
-    desc: 'End-to-end task routing and polling triggers in Power Automate.' 
-  },
-  { 
-    id: 9, 
-    img: '/samples/pa3.png', 
-    title: 'Enterprise Workflow Orchestration', 
-    desc: 'End-to-end task routing and polling triggers in Power Automate.' 
+    desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.',
+    downloadFile: null
   }
 ];
 

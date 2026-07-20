@@ -67,15 +67,6 @@ const Achievements = () => {
                     <CheckCircle className="text-black dark:text-white" />
                     <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-rose-800 transition-colors">Google Coursera</h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Google Cybersecurity Professional Certificate</p>
-                <p className="text-gray-500 text-sm">Awarded for mastering foundational cybersecurity practices, including threat detection, network security, and risk mitigation.</p>
-            </div>
-            {/* Google Coursera */}
-            <div className="p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 shadow-xl hover:border-rose-800 transition-colors group">
-                 <div className="flex items-center gap-3 mb-4">
-                    <CheckCircle className="text-black dark:text-white" />
-                    <h3 className="text-xl font-bold text-black dark:text-white group-hover:text-rose-800 transition-colors">Google Coursera</h3>
-                </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Google UI/UX Design Professional Certificate</p>
                 <p className="text-gray-500 text-sm">Awarded for mastering foundational UI/UX design practices, including user research, wireframing, and prototyping.</p>
             </div>
