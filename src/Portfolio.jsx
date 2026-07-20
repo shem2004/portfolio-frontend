@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ExternalLink, Mail, Phone, MapPin, X, Sparkles, ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { ExternalLink, Mail, Phone, MapPin, X, Sparkles, ChevronLeft, ChevronRight, Download, Github } from 'lucide-react';
 
 // --- DATA PARA SA LOOPING PROJECTS & EXPERIENCE ---
 const experienceData = [
@@ -306,6 +306,12 @@ const Portfolio = () => {
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shemisaiah0@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-2xl font-bold hover:scale-105 hover:shadow-[0_0_20px_rgba(159,18,57,0.4)] transition-all shadow-lg">
                   Let's Talk <Mail size={18} />
                 </a>
+
+                {/* 2. GitHub Button (Nasa Gitna) */}
+                <a href="https://github.com/shem2004" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold bg-neutral-800 hover:bg-neutral-700 text-white transition-all hover:scale-105 shadow-lg border border-neutral-700">
+                  <Github size={18} /> GitHub
+                </a>
+
                 <a href="/cv/DELAVEGA, SHEM ISAIAH_CV.pdf" download="Shem-Isaiah-Dela-Vega-CV.pdf" className="px-8 py-4 rounded-2xl font-bold border-2 border-gray-400 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all text-center hover:scale-105 text-black dark:text-white bg-white/50 dark:bg-black/50 backdrop-blur-sm shadow-lg">
                   Download CV
                 </a>
@@ -537,13 +543,13 @@ const Portfolio = () => {
             <div className="space-y-4 flex flex-col items-center md:items-start">
               <p className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><Mail size={18}/> shemisaiah0@gmail.com</p>
               <p className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><Phone size={18}/> 09955974186</p>
-              <p className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><MapPin size={18}/> Bacoor, Cavite</p>
+              <p className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><MapPin size={18}/> Imus, Cavite</p>
             </div>
           </div>
           <div className="md:text-right flex flex-col items-center md:items-end">
             <h3 className="text-xl sm:text-2xl font-bold mb-4 md:mb-6 italic text-white">Shem Isaiah A. Dela Vega</h3>
             <p className="text-gray-400 uppercase tracking-widest text-xs sm:text-sm">Information Technology</p>
-            <p className="text-rose-600 mt-2 font-mono">PRESIDENT'S LISTER</p>
+            <a href="https://www.linkedin.com/in/shem-isaiah-dela-vega-7a69b5289" target="_blank" rel="noopener noreferrer" className="text-rose-600 mt-2 font-mono hover:underline">LINKEDIN</a>
           </div>
         </div>
       </footer>
