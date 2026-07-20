@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, X, Maximize2, Sparkles, Code2, Images, PlayCircle, ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { ExternalLink, X, Maximize2, Sparkles, Code2, Images, PlayCircle } from 'lucide-react';
 
 const albumMedia = [
   { id: 1, type: 'video', thumb: '/videos/AirPods_Animation.mp4', src: '/videos/AirPods_Animation.mp4', title: '3D Animation', desc: 'Modelled and rendered in Blender 5.0 for a personal advertisement project. Features a modern and techy vibe of 3D animation..' },
@@ -32,46 +32,112 @@ const designProjects = [
   { id: 1, video: '/videos/AirPods_Animation.mp4', src: '/videos/AirPods_Animation.mp4', title: '3D Animation', expl: <>Modelled and rendered in Blender 5.0 for a personal advertisement project. Features a modern and techy vibe of 3D animation. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> 3D Modeling</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Blender</span></div></> },
   { id: 2, img: '/samples/sydney.png', fullImg: '/samples/sydney.png', title: 'Digital Illustration', expl: <>A Sydney Opera House concept art drawn purely in Medibang Paint Pro. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Digital Illustration</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><Maximize2 size={16}/> Medibang Paint Pro</span></div></> },
   { id: 3, img: '/samples/booth.png', fullImg: '/samples/booth.png', title: 'Capstone Booth Mockup', expl: <>Designed the physical booth layout and banners using Photoshop. Used by FG Aesthetic to showcase products at events. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Booth Mockup</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> },
-  { id: 4, img: '/samples/PRODUCT DESIGN.png', fullImg: '/samples/PRODUCT DESIGN.png', title: 'FG Aesthetic Branding', expl: <>Created using Adobe Photoshop for product mockups and marketing assets. Featured are some of my sample works in NTEK Systems.<div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> Aesthetic</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> },
+  { 
+    id: 4, 
+    img: '/samples/PRODUCT DESIGN.png', 
+    fullImg: '/samples/PRODUCT DESIGN.png', 
+    title: 'FG Aesthetic Branding', 
+    expl: <>Created using Adobe Photoshop for product mockups and marketing assets. Featured are some of my sample works in NTEK Systems.<div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> Aesthetic</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> 
+  },
   { id: 5, img: '/samples/coffee.png', fullImg: '/samples/coffee.png', title: 'Social Media Kit', expl: <>A personal project on coffee shop ad poster for social media posting designed via Canva. Includes story and feed posts. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Social Media Kit</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Canva</span></div></> },
   { id: 6, img: '/samples/PRODUCT DESIGN 2.png', fullImg: '/samples/PRODUCT DESIGN 2.png', title: 'UI Concept Art', expl: <>Website interface visualization edited in Photoshop. Conceptual design for an e-commerce landing page. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> UI Concept Art</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> },
   { id: 7, video: '/videos/minivlog.mp4', src: '/videos/minivlog.mp4', title: 'Cinematic Mini-Vlog', expl: <>Directed and edited a dynamic promotional vlog focused on personal branding and visual storytelling. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><PlayCircle size={16}/> Video Editing</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Premiere/CapCut</span></div></> },
 ];
 
+const projectsData = [
+  {
+    title: "GLAM-ID",
+    type: "Capstone Project",
+    desc: "An NFC-based loyalty and client information system for FG Aesthetic Centre. Built with Python Flask and MySQL.",
+    tags: ["Python", "Flask", "NFC", "MySQL"]
+  },
+  {
+    title: "Product & UI/UX Design",
+    type: "Capstone Project",
+    desc: "Led the visual identity and product design using Adobe Photoshop, including mock-up booth designs and the overall website interface.",
+    tags: ["Photoshop", "UI/UX", "Product Design", "Web Design"]
+  },
+  {
+    title: "Portfolio Website",
+    type: "Web Development",
+    desc: "A personal portfolio website built with React, Tailwind CSS, and Framer Motion for smooth animations and elegant UI.",
+    tags: ["React", "Tailwind CSS", "Framer Motion", "Vite", "HTML5", "CSS3", "JavaScript"]
+  },
+  {
+    title: "Digital Illustration & Branding",
+    type: "Creative Design",
+    desc: "Created character concept art and brand identity frameworks using Medibang Paint Pro, Canva, and Adobe Illustrator.",
+    tags: ["Illustration", "Branding", "Canva"]
+  },
+  {
+    title: "GIG Market Designing",
+    type: "NTEK Systems Inc.",
+    desc: "Conducted application testing, market research, and SWOT analysis for the GIG Market app, alongside designing social media marketing materials.",
+    tags: ["Marketing", "Social Media Design"]
+  },
+  {
+    title: "Blender 3D Modelling",
+    type: "Personal Project",
+    desc: "Designed and rendered a low-poly 3D scene in Blender, showcasing skills in modeling, texturing, and lighting for conceptual art.",
+    tags: ["3D Modeling", "Texturing", "Lighting"]
+    }
+];
+
 const automationSlides = [
   { 
     id: 1, 
-    img: '/samples/bi1.png', 
-    gallery: ['/samples/bi1.png', '/samples/bi2.png', '/samples/bi3.png', '/samples/bi4.png'],
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.',
-    downloadFile: '/samples/WA_Fn-UseC_-IT-Help-Desk.pbix'
+    img: '/samples/idp1.png', 
+    title: 'Intelligent Document Processing', 
+    desc: 'Automated data extraction workflow routing using AI Builder.' 
   },
   { 
     id: 2, 
-    img: '/samples/idp1.png', 
-    gallery: ['/samples/idp1.png', '/samples/idp2.png'],
+    img: '/samples/idp2.png', 
     title: 'Intelligent Document Processing', 
-    desc: 'Automated data extraction workflow routing using AI Builder. Engineered to significantly reduce manual data entry and improve accuracy across departments.',
-    downloadFile: null
+    desc: 'Automated data extraction workflow routing using AI Builder.' 
   },
   { 
     id: 3, 
+    img: '/samples/bi1.png', 
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
+  },
+   { 
+    id: 4, 
+    img: '/samples/bi2.png', 
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
+  },
+  { 
+    id: 5, 
+    img: '/samples/bi3.png', 
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
+  },
+  { 
+    id: 6, 
+    img: '/samples/bi4.png', 
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs.' 
+  },
+  { 
+    id: 7, 
     img: '/samples/pa1.png', 
-    gallery: ['/samples/pa1.png', '/samples/pa2.png', '/samples/pa3.png'],
     title: 'Enterprise Workflow Orchestration', 
-    desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.',
-    downloadFile: null
+    desc: 'End-to-end task routing and polling triggers in Power Automate.' 
+  },
+  { 
+    id: 8, 
+    img: '/samples/pa2.png', 
+    title: 'Enterprise Workflow Orchestration', 
+    desc: 'End-to-end task routing and polling triggers in Power Automate.' 
+  },
+  { 
+    id: 9, 
+    img: '/samples/pa3.png', 
+    title: 'Enterprise Workflow Orchestration', 
+    desc: 'End-to-end task routing and polling triggers in Power Automate.' 
   }
-];
-
-const projectsData = [
-  { title: "GLAM-ID", type: "Capstone Project", desc: "An NFC-based loyalty and client information system for FG Aesthetic Centre. Built with Python Flask and MySQL.", tags: ["Python", "Flask", "NFC", "MySQL"] },
-  { title: "Product & UI/UX Design", type: "Capstone Project", desc: "Led the visual identity and product design using Adobe Photoshop, including mock-up booth designs and the overall website interface.", tags: ["Photoshop", "UI/UX", "Product Design", "Web Design"] },
-  { title: "Portfolio Website", type: "Web Development", desc: "A personal portfolio website built with React, Tailwind CSS, and Framer Motion for smooth animations and elegant UI.", tags: ["React", "Tailwind CSS", "Framer Motion", "Vite", "HTML5", "CSS3", "JavaScript"] },
-  { title: "Digital Illustration & Branding", type: "Creative Design", desc: "Created character concept art and brand identity frameworks using Medibang Paint Pro, Canva, and Adobe Illustrator.", tags: ["Illustration", "Branding", "Canva"] },
-  { title: "GIG Market Designing", type: "NTEK Systems Inc.", desc: "Conducted application testing, market research, and SWOT analysis for the GIG Market app, alongside designing social media marketing materials.", tags: ["Marketing", "Social Media Design"] },
-  { title: "Blender 3D Modelling", type: "Personal Project", desc: "Designed and rendered a low-poly 3D scene in Blender, showcasing skills in modeling, texturing, and lighting for conceptual art.", tags: ["3D Modeling", "Texturing", "Lighting"] }
 ];
 
 const Projects = () => {
@@ -80,9 +146,7 @@ const Projects = () => {
   const [selectedDesign, setSelectedDesign] = useState(null);
   const [isAlbumOpen, setIsAlbumOpen] = useState(false);
   const [selectedAlbumMedia, setSelectedAlbumMedia] = useState(null);
-  
   const [autoIndex, setAutoIndex] = useState(0);
-  const [modalGalleryIndex, setModalGalleryIndex] = useState(0);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -101,164 +165,312 @@ const Projects = () => {
             setLiveDesigns([...designProjects, ...dynamicData]);
           }
         }
-      } catch (error) { console.log("Database offline."); }
+      } catch (error) {
+        console.log("Database offline o walang laman. Ginagamit ang default projects.");
+      }
     };
     fetchProjects();
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(() => setCurrentIndex((prev) => (prev + 1) % liveDesigns.length), 3500);
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % liveDesigns.length);
+    }, 3500); 
     return () => clearInterval(timer);
   }, [liveDesigns.length]);
 
   useEffect(() => {
-    const autoTimer = setInterval(() => setAutoIndex((prev) => (prev + 1) % automationSlides.length), 10000);
+    const autoTimer = setInterval(() => {
+      setAutoIndex((prev) => (prev + 1) % automationSlides.length);
+    }, 4000); 
     return () => clearInterval(autoTimer);
   }, []);
 
   return (
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen overflow-hidden">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <h1 className="text-4xl md:text-6xl font-black mb-6 text-center text-black dark:text-white uppercase tracking-tight">Creative & Technical Works</h1>
+        <p className="text-center text-gray-500 mb-16 max-w-2xl mx-auto">A showcase of my capabilities ranging from visual branding and digital illustrations to full-stack system development.</p>
 
-        {/* --- 2. 3D STACKED DESIGN GALLERY --- */}
+        {/* --- 1. 3D STACKED DESIGN GALLERY --- */}
         <div className="relative w-full flex flex-col lg:flex-row items-center justify-between gap-12 mb-32">
+          
+          {/* TEXT SIDE (Dynamic) */}
           <div className="w-full lg:w-5/12 z-20 order-2 lg:order-1 text-center lg:text-left">
-             <h2 className="text-xs sm:text-sm font-bold text-rose-800 tracking-[0.2em] uppercase mb-6 flex items-center justify-center lg:justify-start gap-2"><Sparkles size={16} /> Featured Designs Gallery</h2>
+             <h2 className="text-xs sm:text-sm font-bold text-rose-800 tracking-[0.2em] uppercase mb-6 flex items-center justify-center lg:justify-start gap-2">
+                <Sparkles size={16} /> Featured Designs Gallery
+             </h2>
+             
              <div className="h-[200px] sm:h-[180px] relative"> 
                 <AnimatePresence mode="wait">
-                   <motion.div key={currentIndex} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="absolute inset-0">
-                     <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-black dark:text-white mb-4 leading-tight tracking-tighter">{liveDesigns[currentIndex]?.title}</h3>
-                     <div className="text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-6 font-light">{liveDesigns[currentIndex]?.expl}</div>
-                     <button onClick={() => setIsAlbumOpen(true)} className="flex items-center gap-2 bg-rose-800 hover:bg-rose-900 text-white px-6 py-3 rounded-xl font-bold transition-all mx-auto lg:mx-0 shadow-lg hover:scale-105"><Images size={18} /> View Design Album</button>
+                   <motion.div
+                     key={currentIndex}
+                     initial={{ opacity: 0, y: 20 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     exit={{ opacity: 0, y: -20 }}
+                     transition={{ duration: 0.4 }}
+                     className="absolute inset-0"
+                   >
+                     <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-black dark:text-white mb-4 leading-tight tracking-tighter">
+                        {liveDesigns[currentIndex]?.title}
+                     </h3>
+                     
+                     <div className="text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-6 font-light">
+                        {liveDesigns[currentIndex]?.expl}
+                     </div>
+                     
+                     <button
+                        onClick={() => setIsAlbumOpen(true)}
+                        className="flex items-center gap-2 bg-rose-800 hover:bg-rose-900 text-white px-6 py-3 rounded-xl font-bold transition-all mx-auto lg:mx-0 shadow-[0_0_20px_rgba(159,18,57,0.4)] hover:shadow-[0_0_30px_rgba(159,18,57,0.6)] hover:scale-105"
+                     >
+                        <Images size={18} /> View Design Album
+                     </button>
                    </motion.div>
                 </AnimatePresence>
              </div>
           </div>
+
+          {/* 3D STACK ANIMATION SIDE */}
           <div className="w-full lg:w-7/12 h-[300px] sm:h-[400px] md:h-[450px] relative flex justify-center items-center order-1 lg:order-2">
              {liveDesigns.map((proj, index) => {
                 const diff = (index - currentIndex + liveDesigns.length) % liveDesigns.length;
-                let animationProps = diff === 0 ? { x: 0, y: 0, scale: 1, opacity: 1, zIndex: 30, rotate: 0 } : diff === 1 ? { x: "12%", y: "-6%", scale: 0.9, opacity: 0.7, zIndex: 20, rotate: 3 } : diff === 2 ? { x: "24%", y: "-12%", scale: 0.8, opacity: 0.3, zIndex: 10, rotate: -2 } : { x: "30%", y: "-15%", scale: 0.7, opacity: 0, zIndex: 0 };
+
+                let animationProps = {};
+                if (diff === 0) {
+                  animationProps = { x: 0, y: 0, scale: 1, opacity: 1, zIndex: 30, rotate: 0, filter: "blur(0px)" };
+                } else if (diff === 1) {
+                  animationProps = { x: "12%", y: "-6%", scale: 0.9, opacity: 0.7, zIndex: 20, rotate: 3, filter: "blur(3px)" };
+                } else if (diff === 2) {
+                  animationProps = { x: "24%", y: "-12%", scale: 0.8, opacity: 0.3, zIndex: 10, rotate: -2, filter: "blur(6px)" };
+                } else if (diff === liveDesigns.length - 1) {
+                  animationProps = { x: "-40%", y: "15%", scale: 1.1, opacity: 0, zIndex: 40, rotate: -10, filter: "blur(0px)" };
+                } else {
+                  animationProps = { x: "30%", y: "-15%", scale: 0.7, opacity: 0, zIndex: 0, rotate: 0, filter: "blur(10px)" };
+                }
+
                 return (
-                  <motion.div key={proj.id} animate={animationProps} transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }} className="absolute w-4/5 md:w-[85%] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border bg-black cursor-pointer" onClick={() => diff === 0 && setSelectedDesign({ ...proj, fullImg: proj.fullImg, expl: proj.expl, tag: 'Design Sample' })}>
-                     {proj.video && diff === 0 ? <video src={proj.video} className="w-full h-full object-cover pointer-events-none" autoPlay loop muted playsInline /> : <img src={proj.img || proj.fullImg} alt={proj.title} className="w-full h-full object-cover" />}
+                  <motion.div
+                    key={proj.id}
+                    animate={animationProps}
+                    transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }} 
+                    className={`absolute w-4/5 md:w-[85%] aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-gray-200 dark:border-gray-800 bg-black ${diff === 0 ? 'cursor-pointer hover:shadow-[0_0_30px_rgba(159,18,57,0.5)]' : 'pointer-events-none'}`}
+                    onClick={() => diff === 0 && setSelectedDesign(proj)}
+                  >
+                     {proj.video && diff === 0 ? (
+                        <video src={proj.video} className="w-full h-full object-cover pointer-events-none" autoPlay loop muted playsInline />
+                     ) : (
+                        <img src={proj.img || proj.fullImg} alt={proj.title} className="w-full h-full object-cover" />
+                     )}
+                     
                      {diff !== 0 && <div className="absolute inset-0 bg-black/40" />}
                   </motion.div>
                 )
              })}
           </div>
         </div>
-        
-        {/* --- 1. AUTOMATION & ANALYTICS SHOWCASE --- */}
-        <div className="border-b border-gray-200 dark:border-gray-800 pb-16 mb-16">
+
+        {/* --- 2. AUTOMATION & ANALYTICS SHOWCASE (MOVED TO TOP AND MADE CLICKABLE) --- */}
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-16 mt-16">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3">
                 <Sparkles className="text-rose-800" size={32} /> AUTOMATION & ANALYTICS SHOWCASE
             </h2>
 
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center bg-gray-50 dark:bg-neutral-900/40 p-6 sm:p-10 rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-xl">
-                <div 
-                    className="w-full lg:w-3/5 relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-black group cursor-pointer"
-                    onClick={() => {
-                        setModalGalleryIndex(0);
-                        setSelectedDesign({
-                            gallery: automationSlides[autoIndex].gallery,
-                            title: automationSlides[autoIndex].title,
-                            expl: automationSlides[autoIndex].desc,
-                            tag: 'Automation Showcase',
-                            downloadFile: automationSlides[autoIndex].downloadFile
-                        });
-                    }}
+            <div 
+              className="relative w-full max-w-5xl mx-auto h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-black group cursor-pointer"
+              onClick={() => setSelectedAlbumMedia({ 
+                type: 'image', 
+                src: automationSlides[autoIndex].img, 
+                title: automationSlides[autoIndex].title, 
+                desc: automationSlides[autoIndex].desc 
+              })}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={autoIndex}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="absolute inset-0"
                 >
-                    <AnimatePresence mode="wait">
-                        <motion.img key={autoIndex} src={automationSlides[autoIndex].img} initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                    </AnimatePresence>
-                </div>
+                  <img 
+                    src={automationSlides[autoIndex].img} 
+                    alt={automationSlides[autoIndex].title} 
+                    className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-500" 
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6 md:p-10">
+                    <h3 className="text-2xl md:text-3xl font-black text-white mb-2">{automationSlides[autoIndex].title}</h3>
+                    <p className="text-gray-300 text-sm md:text-base font-light">{automationSlides[autoIndex].desc}</p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
 
-                <div className="w-full lg:w-2/5 flex flex-col justify-center min-h-[250px]">
-                    <h4 className="text-2xl sm:text-3xl font-black text-black dark:text-white mb-4 leading-tight">{automationSlides[autoIndex].title}</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed font-light mb-6">{automationSlides[autoIndex].desc}</p>
-                    
-                    {automationSlides[autoIndex].downloadFile && (
-                      <a href={automationSlides[autoIndex].downloadFile} download className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full bg-rose-800 hover:bg-rose-700 text-white text-sm font-bold shadow-lg hover:scale-105 transition-all w-fit">
-                          <Download size={16} /> Download File
-                      </a>
-                    )}
-                </div>
+              {/* Navigation Dots */}
+              <div className="absolute bottom-6 right-8 flex gap-3 z-20">
+                {automationSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setAutoIndex(idx);
+                    }}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${autoIndex === idx ? 'bg-rose-600 scale-150' : 'bg-white/50 hover:bg-white'}`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </div>
         </div>
 
-        
-
         {/* --- 3. TECH & DEV PROJECTS --- */}
         <div className="border-t border-gray-200 dark:border-gray-800 pt-16 mt-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3"><Code2 className="text-rose-800" size={32} /> DESIGN / DEVELOPMENT EXPERIENCE</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3">
+                <Code2 className="text-rose-800" size={32} /> DESIGN / DEVELOPMENT EXPERIENCE
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projectsData.map((item, index) => <ProjectCard key={index} {...item} />)}
+            {projectsData.map((item, index) => (
+                <ProjectCard 
+                    key={index}
+                    title={item.title} 
+                    type={item.type}
+                    desc={item.desc}
+                    tags={item.tags}
+                />
+            ))}
             </div>
         </div>
       </motion.div>
 
-      {/* --- CINEMATIC POP-OUT MODAL (USED FOR BOTH DESIGN & AUTOMATION) --- */}
+      {/* --- DESIGN MODAL/POP-OUT PARA SA PAG-CLICK SA 3D IMAGE MISMO --- */}
       <AnimatePresence>
         {selectedDesign && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedDesign(null)} className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md p-4 flex items-center justify-center cursor-pointer">
-            <motion.div initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} onClick={(e) => e.stopPropagation()} className="bg-white dark:bg-neutral-900 rounded-3xl max-w-6xl w-full max-h-[95vh] flex flex-col overflow-hidden border border-gray-800 shadow-2xl relative cursor-default">
-                <button onClick={() => setSelectedDesign(null)} className="absolute top-6 right-6 p-2 rounded-full bg-black/50 text-white z-50"><X size={20}/></button>
-                <div className="w-full bg-black flex items-center justify-center p-8 min-h-[40vh] border-b border-gray-800">
-                    {selectedDesign.gallery ? (
-                        <div className="relative w-full flex items-center justify-center">
-                            <img src={selectedDesign.gallery[modalGalleryIndex]} className="max-h-[60vh] object-contain" />
-                            {selectedDesign.gallery.length > 1 && (
-                                <>
-                                    <button onClick={() => setModalGalleryIndex(p => p === 0 ? selectedDesign.gallery.length - 1 : p - 1)} className="absolute left-4 p-3 bg-black/50 text-white rounded-full"><ChevronLeft /></button>
-                                    <button onClick={() => setModalGalleryIndex(p => p === selectedDesign.gallery.length - 1 ? 0 : p + 1)} className="absolute right-4 p-3 bg-black/50 text-white rounded-full"><ChevronRight /></button>
-                                </>
-                            )}
+          <motion.div 
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setSelectedDesign(null)}
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm p-4 flex items-center justify-center cursor-pointer"
+          >
+            <motion.div 
+                initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }} transition={{ type: "spring", damping: 20, stiffness: 300 }}
+                onClick={(e) => e.stopPropagation()} 
+                className="bg-white dark:bg-neutral-950 rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-gray-800 shadow-2xl p-6 sm:p-8 relative cursor-default"
+            >
+                <button onClick={() => setSelectedDesign(null)} className="absolute top-4 sm:top-6 right-4 sm:right-6 p-2 rounded-full bg-gray-100 dark:bg-neutral-900 text-gray-500 hover:text-black dark:hover:text-white transition-colors z-10">
+                    <X size={20}/>
+                </button>
+                <div className="grid md:grid-cols-5 gap-6 sm:gap-10 mt-8 sm:mt-6">
+                    <div className="md:col-span-3 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-black flex items-center justify-center min-h-[300px]">
+                        {selectedDesign.video ? (
+                            <video src={selectedDesign.src || selectedDesign.video} controls autoPlay loop className="w-full h-auto object-contain max-h-[60vh]" />
+                        ) : (
+                            <img src={selectedDesign.fullImg} alt={selectedDesign.title} className="w-full h-auto object-cover" />
+                        )}
+                    </div>
+                    <div className="md:col-span-2 space-y-3 sm:space-y-4 pt-2 sm:pt-4">
+                        <h3 className="text-2xl sm:text-3xl font-black text-black dark:text-white tracking-tighter uppercase">{selectedDesign.title}</h3>
+                        
+                        <div className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-light">
+                            {selectedDesign.expl}
                         </div>
-                    ) : (
-                        <img src={selectedDesign.fullImg} className="max-h-[60vh] object-contain" />
-                    )}
-                </div>
-                <div className="p-8 overflow-y-auto">
-                    <h3 className="text-4xl font-black mb-4 uppercase">{selectedDesign.title}</h3>
-                    <p className="text-lg text-gray-400 mb-6">{selectedDesign.expl}</p>
-                    {selectedDesign.downloadFile && (
-                        <a href={selectedDesign.downloadFile} download className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-rose-800 text-white font-bold"><Download size={20} /> Download Sample File</a>
-                    )}
+                        
+                        <div className="pt-4 sm:pt-6">
+                            <span className="px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/30 text-rose-800 dark:text-rose-500 text-xs font-semibold border border-rose-200 dark:border-rose-900">Design Sample</span>
+                        </div>
+                    </div>
                 </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* --- ALBUM MODAL --- */}
-      <AnimatePresence>
+        {/* --- YUNG POP-UP MODAL PARA SA ALBUM --- */}
+        <AnimatePresence>
             {isAlbumOpen && (
                 <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }} className="fixed inset-0 z-[100] bg-white/95 dark:bg-neutral-950/95 backdrop-blur-xl overflow-y-auto p-6 md:p-12">
-                    <button onClick={() => setIsAlbumOpen(false)} className="absolute top-6 right-6 p-3 bg-neutral-800 text-white rounded-full"><X size={24} /></button>
+                    <button onClick={() => setIsAlbumOpen(false)} className="absolute top-6 right-6 p-3 bg-gray-200 dark:bg-neutral-800 text-black dark:text-white rounded-full hover:bg-rose-100 dark:hover:bg-rose-900/30 hover:text-rose-800 dark:hover:text-rose-500 transition-colors z-50">
+                        <X size={24} />
+                    </button>
                     <div className="max-w-6xl mx-auto mt-12 pb-20">
-                        <h2 className="text-5xl font-black mb-12">Design Album</h2>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <h2 className="text-4xl md:text-5xl font-black mb-4 text-black dark:text-white">Design Album</h2>
+                        <p className="text-gray-600 dark:text-gray-400 mb-12">A gallery of my graphic designs, visual arts, and video concepts.</p>
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                             {albumMedia.map((media) => (
-                                <div key={media.id} onClick={() => setSelectedAlbumMedia(media)} className="aspect-square rounded-2xl overflow-hidden cursor-pointer bg-neutral-900">
-                                    <img src={media.thumb} className="w-full h-full object-cover" />
-                                </div>
+                                <motion.div 
+                                    key={media.id} 
+                                    whileHover={{ scale: 1.03 }} 
+                                    onClick={() => setSelectedAlbumMedia(media)} 
+                                    onMouseEnter={(e) => {
+                                        const vid = e.currentTarget.querySelector('video');
+                                        if (vid) vid.play();
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        const vid = e.currentTarget.querySelector('video');
+                                        if (vid) {
+                                            vid.pause();
+                                            vid.currentTime = 0; 
+                                        }
+                                    }}
+                                    className="relative aspect-square rounded-2xl overflow-hidden cursor-pointer group shadow-lg border border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-neutral-900"
+                                >
+                                    {media.type === 'video' ? (
+                                        <video src={media.thumb} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 pointer-events-none" loop muted playsInline />
+                                    ) : (
+                                        <img src={media.thumb} alt={media.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                    )}
+                                    {media.type === 'video' && (
+                                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                            <PlayCircle size={48} className="text-white opacity-90 group-hover:scale-110 transition-transform" />
+                                        </div>
+                                    )}
+                                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <h4 className="text-white font-bold text-sm md:text-base truncate">{media.title}</h4>
+                                    </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
                 </motion.div>
             )}
         </AnimatePresence>
+
+      {/* --- FULLSCREEN MEDIA VIEWER PARA SA ALBUM AT AUTOMATION IMAGES --- */}
+      <AnimatePresence>
+        {selectedAlbumMedia && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedAlbumMedia(null)} className="fixed inset-0 z-[110] bg-black/95 backdrop-blur-md p-4 md:p-8 flex items-center justify-center">
+                <button onClick={() => setSelectedAlbumMedia(null)} className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white hover:bg-rose-600 transition-colors z-50">
+                    <X size={24}/>
+                </button>
+                <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} onClick={(e) => e.stopPropagation()} className="relative max-w-5xl w-full flex flex-col bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-800">
+                    <div className="relative w-full flex items-center justify-center bg-black overflow-hidden p-2 md:p-6 min-h-[40vh]">
+                        {selectedAlbumMedia.type === 'video' ? (
+                            <video src={selectedAlbumMedia.src} controls autoPlay className="max-w-full max-h-[65vh] object-contain rounded-xl" />
+                        ) : (
+                            <img src={selectedAlbumMedia.src} alt={selectedAlbumMedia.title} className="max-w-full max-h-[65vh] object-contain rounded-xl" />
+                        )}
+                    </div>
+                    <div className="p-6 md:p-8 bg-neutral-900 border-t border-neutral-800">
+                        <h3 className="text-2xl font-bold text-white mb-2">{selectedAlbumMedia.title}</h3>
+                        <p className="text-gray-400 text-sm md:text-base leading-relaxed">{selectedAlbumMedia.desc}</p>
+                    </div>
+                </motion.div>
+            </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 const ProjectCard = ({ title, type, desc, tags }) => (
-  <motion.div whileHover={{ y: -5 }} className="flex flex-col h-full p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-800 cursor-default">
-    <span className="text-xs font-bold text-rose-500 uppercase mb-2">{type}</span>
-    <h3 className="text-2xl font-bold mb-4">{title}</h3>
-    <p className="text-base text-gray-400 mb-6 flex-grow">{desc}</p>
-    <div className="flex flex-wrap gap-2">{tags.map(t => <span key={t} className="px-3 py-1 bg-neutral-800 text-xs rounded-full">{t}</span>)}</div>
+  <motion.div whileHover={{ y: -5 }} className="flex flex-col h-full p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 hover:border-rose-800 transition-all shadow-xl shadow-gray-200/50 dark:shadow-none cursor-default">
+    <span className="text-[10px] sm:text-xs font-bold text-rose-800 dark:text-rose-500 uppercase tracking-wider mb-2 block">{type}</span>
+    <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 flex justify-between items-start text-black dark:text-white group-hover:text-rose-800 transition-colors">{title}</h3>
+    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6 leading-relaxed flex-grow">{desc}</p>
+    <div className="flex flex-wrap gap-2 mt-auto">
+      {tags.map(t => <span key={t} className="px-2 sm:px-3 py-1 bg-gray-100 dark:bg-neutral-800 text-[10px] sm:text-xs rounded-full font-medium">{t}</span>)}
+    </div>
   </motion.div>
 );
 
