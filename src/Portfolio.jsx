@@ -56,19 +56,19 @@ const designProjects = [
 const automationSlides = [
   { 
     id: 1, 
+    img: '/samples/bi1.png', 
+    gallery: ['/samples/bi1.png', '/samples/bi2.png', '/samples/bi3.png', '/samples/bi4.png'],
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.',
+    downloadFile: '/samples/WA_Fn-UseC_-IT-Help-Desk.pbix'
+  },
+  { 
+    id: 2, 
     img: '/samples/idp1.png', 
     gallery: ['/samples/idp1.png', '/samples/idp2.png'],
     title: 'Intelligent Document Processing', 
     desc: 'Automated data extraction workflow routing using AI Builder. Engineered to significantly reduce manual data entry and improve accuracy across departments.',
     downloadFile: null
-  },
-  { 
-    id: 2, 
-    img: '/samples/bi1.png', 
-    gallery: ['/samples/bi1.png', '/samples/bi2.png', '/samples/bi3.png', '/samples/bi4.png'],
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.',
-    downloadFile: '/samples/IT-Helpdesk.pbix'
   },
   { 
     id: 3, 
@@ -423,9 +423,22 @@ const Portfolio = () => {
                   <h4 className="text-2xl sm:text-3xl font-black text-black dark:text-white mb-4 leading-tight">
                     {automationSlides[autoIndex].title}
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed font-light mb-8">
+                  <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed font-light mb-6">
                     {automationSlides[autoIndex].desc}
                   </p>
+                  
+                  {/* PREVIEW DOWNLOAD BUTTON */}
+                  {automationSlides[autoIndex].downloadFile && (
+                      <a 
+                          href={automationSlides[autoIndex].downloadFile} 
+                          download 
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full bg-rose-800 hover:bg-rose-700 text-white text-sm font-bold shadow-[0_0_15px_rgba(159,18,57,0.5)] hover:shadow-[0_0_25px_rgba(159,18,57,0.8)] hover:scale-105 transition-all w-fit"
+                      >
+                          <Download size={16} /> Download Sample File
+                      </a>
+                  )}
+                  
                 </motion.div>
               </AnimatePresence>
 
