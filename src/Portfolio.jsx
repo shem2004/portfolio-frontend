@@ -77,6 +77,12 @@ const automationSlides = [
     title: 'Enterprise Workflow Orchestration', 
     desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.',
     downloadFile: null
+  },
+  {
+    title: "Analytics Engineering Pipeline",
+    type: "Data Engineering Project",
+    desc: "Built a modern data pipeline transforming raw datasets in Google BigQuery into analytics-ready dimensional models. Orchestrated ETL/ELT workflows using dbt (Data Build Tool), writing complex SQL CTEs to generate Fact and Dimension tables while ensuring data lineage visibility.",
+    tags: ["dbt", "Google BigQuery", "SQL", "Data Modeling", "ETL/ELT"]
   }
 ];
 

@@ -107,6 +107,12 @@ const automationSlides = [
     title: 'Enterprise Workflow Orchestration', 
     desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.',
     downloadFile: null
+  },
+  {
+    title: "Analytics Engineering Pipeline",
+    type: "Data Engineering Project",
+    desc: "Built a modern data pipeline transforming raw datasets in Google BigQuery into analytics-ready dimensional models. Orchestrated ETL/ELT workflows using dbt (Data Build Tool), writing complex SQL CTEs to generate Fact and Dimension tables while ensuring data lineage visibility.",
+    tags: ["dbt", "Google BigQuery", "SQL", "Data Modeling", "ETL/ELT"]
   }
 ];
 
@@ -229,7 +235,7 @@ const Projects = () => {
                             onClick={(e) => e.stopPropagation()}
                             className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full bg-rose-800 hover:bg-rose-700 text-white text-sm font-bold shadow-[0_0_15px_rgba(159,18,57,0.5)] hover:shadow-[0_0_25px_rgba(159,18,57,0.8)] hover:scale-105 transition-all w-fit"
                         >
-                            <Download size={16} /> Download Sample File
+                            <Download size={16} /> Download File
                         </a>
                     )}
                   </motion.div>
