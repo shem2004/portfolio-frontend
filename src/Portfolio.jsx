@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ExternalLink, Mail, Phone, MapPin, X, Sparkles } from 'lucide-react';
+import { ExternalLink, Mail, Phone, MapPin, X, Sparkles, ChevronLeft, ChevronRight, Download } from 'lucide-react';
 
 // --- DATA PARA SA LOOPING PROJECTS & EXPERIENCE ---
 const experienceData = [
@@ -52,61 +52,31 @@ const designProjects = [
   { id: 6, img: '/samples/PRODUCT DESIGN 2.png', fullImg: '/samples/PRODUCT DESIGN 2.png', title: 'UI Concept Art', expl: 'Website interface visualization edited in Photoshop.' },
 ];
 
-// --- DATA PARA SA AUTOMATION SLIDESHOW ---
+// --- DATA PARA SA AUTOMATION SLIDESHOW (GROUPED AND COMPACT) ---
 const automationSlides = [
   { 
     id: 1, 
     img: '/samples/idp1.png', 
+    gallery: ['/samples/idp1.png', '/samples/idp2.png'],
     title: 'Intelligent Document Processing', 
-    desc: 'Automated data extraction workflow routing using AI Builder. Engineered to significantly reduce manual data entry and improve accuracy across departments.' 
+    desc: 'Automated data extraction workflow routing using AI Builder. Engineered to significantly reduce manual data entry and improve accuracy across departments.',
+    downloadFile: null
   },
   { 
     id: 2, 
-    img: '/samples/idp2.png', 
-    title: 'Intelligent Document Processing', 
-    desc: 'Automated data extraction workflow routing using AI Builder. Engineered to significantly reduce manual data entry and improve accuracy across departments.' 
+    img: '/samples/bi1.png', 
+    gallery: ['/samples/bi1.png', '/samples/bi2.png', '/samples/bi3.png', '/samples/bi4.png'],
+    title: 'IT Helpdesk Analytics Dashboard', 
+    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.',
+    downloadFile: 'YOUR_FILE_LINK_HERE.pdf' // <-- PALITAN MO ITO NG TOTOONG FILE LINK MO (ex. '/samples/PowerBI_Sample.pbix')
   },
   { 
     id: 3, 
-    img: '/samples/bi1.png', 
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.' 
-  },
-   { 
-    id: 4, 
-    img: '/samples/bi2.png', 
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.' 
-  },
-  { 
-    id: 5, 
-    img: '/samples/bi3.png', 
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.' 
-  },
-  { 
-    id: 6, 
-    img: '/samples/bi4.png', 
-    title: 'IT Helpdesk Analytics Dashboard', 
-    desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.' 
-  },
-  { 
-    id: 7, 
     img: '/samples/pa1.png', 
+    gallery: ['/samples/pa1.png', '/samples/pa2.png', '/samples/pa3.png'],
     title: 'Enterprise Workflow Orchestration', 
-    desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.' 
-  },
-  { 
-    id: 8, 
-    img: '/samples/pa2.png', 
-    title: 'Enterprise Workflow Orchestration', 
-    desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.' 
-  },
-  { 
-    id: 9, 
-    img: '/samples/pa3.png', 
-    title: 'Enterprise Workflow Orchestration', 
-    desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.' 
+    desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.',
+    downloadFile: null
   }
 ];
 
@@ -183,7 +153,10 @@ const Portfolio = () => {
   // State para sa Fullscreen Design & Automation Images
   const [selectedDesign, setSelectedDesign] = useState(null);
   
-  // State for Automation Slideshow
+  // State para sa loob ng mini-gallery pag nakabukas na ang modal
+  const [modalGalleryIndex, setModalGalleryIndex] = useState(0);
+  
+  // State for Automation Slideshow Main Preview
   const [autoIndex, setAutoIndex] = useState(0);
 
   // Parallax Setup
@@ -192,7 +165,7 @@ const Portfolio = () => {
   const textY = useTransform(scrollY, [0, 800], [0, -150]); 
   const textOpacity = useTransform(scrollY, [0, 400], [1, 0]); 
 
-  // Automation Slideshow Auto-play (Slowed down to 10 seconds)
+  // Automation Slideshow Auto-play
   useEffect(() => {
     const autoTimer = setInterval(() => {
       setAutoIndex((prev) => (prev + 1) % automationSlides.length);
@@ -409,15 +382,19 @@ const Portfolio = () => {
           </div>
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center bg-gray-50 dark:bg-neutral-900/40 p-6 sm:p-10 rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-xl">
-            {/* LEFT: SLIDESHOW IMAGE (Now Clickable) */}
+            {/* LEFT: SLIDESHOW IMAGE (Now Clickable, opens mini-gallery) */}
             <div 
               className="w-full lg:w-3/5 relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-black group cursor-pointer"
-              onClick={() => setSelectedDesign({
-                 fullImg: automationSlides[autoIndex].img,
-                 title: automationSlides[autoIndex].title,
-                 expl: automationSlides[autoIndex].desc,
-                 tag: 'Automation Showcase'
-              })}
+              onClick={() => {
+                setModalGalleryIndex(0); // Reset natin sa una ang gallery pag nag-open
+                setSelectedDesign({
+                   gallery: automationSlides[autoIndex].gallery,
+                   title: automationSlides[autoIndex].title,
+                   expl: automationSlides[autoIndex].desc,
+                   tag: 'Automation Showcase',
+                   downloadFile: automationSlides[autoIndex].downloadFile
+                });
+              }}
             >
               <AnimatePresence mode="wait">
                 <motion.img
@@ -498,7 +475,10 @@ const Portfolio = () => {
                                 animate={{ rotate: [-angle, -angle - 360] }}
                                 transition={{ duration: 30, ease: "linear", repeat: Infinity }}
                                 whileHover={{ scale: 1.15, zIndex: 50 }}
-                                onClick={() => setSelectedDesign(proj)}
+                                onClick={() => {
+                                    setModalGalleryIndex(0); // Reset natin in case ito rin gagamit ng modal
+                                    setSelectedDesign(proj);
+                                }}
                             >
                                 <img src={proj.img} alt={proj.title} className="w-full h-full object-cover" />
                             </motion.div>
@@ -546,7 +526,7 @@ const Portfolio = () => {
         </div>
       </footer>
 
-      {/* --- BAGONG CINEMATIC POP-OUT MODAL PARA SA LAHAT --- */}
+      {/* --- BAGONG CINEMATIC POP-OUT MODAL (WITH MINI GALLERY & DOWNLOAD) --- */}
       <AnimatePresence>
         {selectedDesign && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelectedDesign(null)} className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md p-4 flex items-center justify-center cursor-pointer">
@@ -564,21 +544,59 @@ const Portfolio = () => {
                 
                 {/* IMAGE/VIDEO AREA (FULL WIDTH & CINEMATIC) */}
                 <div className="w-full bg-black flex items-center justify-center p-4 sm:p-8 min-h-[40vh] border-b border-gray-200 dark:border-gray-800 relative group">
-                    {selectedDesign.video ? (
+                    {/* Kung ito ay may Gallery (katulad ng Automation) */}
+                    {selectedDesign.gallery ? (
+                        <div className="relative w-full h-full flex items-center justify-center">
+                            <img src={selectedDesign.gallery[modalGalleryIndex]} alt={selectedDesign.title} className="max-w-full max-h-[60vh] object-contain rounded-lg" />
+                            
+                            {/* Buttons for next/prev picture */}
+                            {selectedDesign.gallery.length > 1 && (
+                                <>
+                                    <button onClick={(e) => { e.stopPropagation(); setModalGalleryIndex(prev => prev === 0 ? selectedDesign.gallery.length - 1 : prev - 1); }} className="absolute left-2 sm:left-6 p-2 sm:p-3 bg-black/60 hover:bg-rose-600 text-white rounded-full transition-colors z-20 shadow-md">
+                                        <ChevronLeft size={24} />
+                                    </button>
+                                    <button onClick={(e) => { e.stopPropagation(); setModalGalleryIndex(prev => prev === selectedDesign.gallery.length - 1 ? 0 : prev + 1); }} className="absolute right-2 sm:right-6 p-2 sm:p-3 bg-black/60 hover:bg-rose-600 text-white rounded-full transition-colors z-20 shadow-md">
+                                        <ChevronRight size={24} />
+                                    </button>
+                                    {/* Mga tuldok sa baba ng picture */}
+                                    <div className="absolute bottom-4 flex gap-2 z-20">
+                                        {selectedDesign.gallery.map((_, i) => (
+                                            <div key={i} className={`w-2 sm:w-3 h-2 sm:h-3 rounded-full transition-all ${i === modalGalleryIndex ? 'bg-rose-600 scale-125' : 'bg-white/50'}`} />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    ) : selectedDesign.video ? (
+                        /* Kung ito ay ordinaryong Video (tulad ng 3D airpods) */
                         <video src={selectedDesign.video} controls autoPlay loop className="max-w-full max-h-[60vh] object-contain rounded-lg" />
                     ) : (
+                        /* Kung ito ay ordinaryong solong Image */
                         <img src={selectedDesign.fullImg} alt={selectedDesign.title} className="max-w-full max-h-[60vh] object-contain rounded-lg" />
                     )}
                 </div>
 
-                {/* TEXT AREA SA ILALIM */}
+                {/* TEXT AREA SA ILALIM (Kasama ang Download Button) */}
                 <div className="p-6 sm:p-10 overflow-y-auto">
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-black dark:text-white tracking-tighter uppercase mb-4">{selectedDesign.title}</h3>
                     <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-light">{selectedDesign.expl}</p>
-                    <div className="pt-6">
+                    
+                    <div className="pt-6 flex flex-wrap gap-4 items-center">
                         <span className="px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/30 text-rose-800 dark:text-rose-500 text-xs font-semibold border border-rose-200 dark:border-rose-900">
                             {selectedDesign.tag || "Design Sample"}
                         </span>
+
+                        {/* ITO YUNG DOWNLOAD BUTTON NA HINAHANAP MO */}
+                        {selectedDesign.downloadFile && (
+                            <a 
+                                href={selectedDesign.downloadFile} 
+                                download 
+                                onClick={(e) => e.stopPropagation()} // Para hindi magsara yung modal pag kinlick
+                                className="flex items-center gap-2 px-5 py-2 rounded-full bg-rose-800 hover:bg-rose-700 text-white text-sm font-bold shadow-[0_0_15px_rgba(159,18,57,0.5)] hover:shadow-[0_0_25px_rgba(159,18,57,0.8)] hover:scale-105 transition-all"
+                            >
+                                <Download size={16} /> Download Sample File
+                            </a>
+                        )}
                     </div>
                 </div>
             </motion.div>
