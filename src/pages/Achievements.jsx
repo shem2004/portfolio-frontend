@@ -36,7 +36,7 @@ const Achievements = () => {
         {/* --- GRID OF CARDS (With Staggered Animation) --- */}
         <motion.div 
             variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-4 gap-8"
         >
             {/* TESDA NC II */}
             <motion.div 
