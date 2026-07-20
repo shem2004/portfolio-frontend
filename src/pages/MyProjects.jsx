@@ -28,6 +28,16 @@ const albumMedia = [
   { id: 23, type: 'image', thumb: '/samples/Modern6.png', src: '/samples/Modern6.png', title: 'Digital Illustration', desc: 'Guggnheim Museum (Medibang Paint Pro).' },
 ];
 
+const designProjects = [
+  { id: 1, video: '/videos/AirPods_Animation.mp4', src: '/videos/AirPods_Animation.mp4', title: '3D Animation', expl: <>Modelled and rendered in Blender 5.0 for a personal advertisement project. Features a modern and techy vibe of 3D animation. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> 3D Modeling</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Blender</span></div></> },
+  { id: 2, img: '/samples/sydney.png', fullImg: '/samples/sydney.png', title: 'Digital Illustration', expl: <>A Sydney Opera House concept art drawn purely in Medibang Paint Pro. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Digital Illustration</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><Maximize2 size={16}/> Medibang Paint Pro</span></div></> },
+  { id: 3, img: '/samples/booth.png', fullImg: '/samples/booth.png', title: 'Capstone Booth Mockup', expl: <>Designed the physical booth layout and banners using Photoshop. Used by FG Aesthetic to showcase products at events. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Booth Mockup</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> },
+  { id: 4, img: '/samples/PRODUCT DESIGN.png', fullImg: '/samples/PRODUCT DESIGN.png', title: 'FG Aesthetic Branding', expl: <>Created using Adobe Photoshop for product mockups and marketing assets. Featured are some of my sample works in NTEK Systems.<div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> Aesthetic</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> },
+  { id: 5, img: '/samples/coffee.png', fullImg: '/samples/coffee.png', title: 'Social Media Kit', expl: <>A personal project on coffee shop ad poster for social media posting designed via Canva. Includes story and feed posts. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Social Media Kit</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Canva</span></div></> },
+  { id: 6, img: '/samples/PRODUCT DESIGN 2.png', fullImg: '/samples/PRODUCT DESIGN 2.png', title: 'UI Concept Art', expl: <>Website interface visualization edited in Photoshop. Conceptual design for an e-commerce landing page. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> UI Concept Art</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> },
+  { id: 7, video: '/videos/minivlog.mp4', src: '/videos/minivlog.mp4', title: 'Cinematic Mini-Vlog', expl: <>Directed and edited a dynamic promotional vlog focused on personal branding and visual storytelling. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><PlayCircle size={16}/> Video Editing</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Premiere/CapCut</span></div></> },
+];
+
 const automationSlides = [
   { 
     id: 1, 
@@ -53,16 +63,6 @@ const automationSlides = [
     desc: 'End-to-end task routing and polling triggers in Power Automate. Built complex logic to automate inter-departmental task routing and dynamic data synchronization.',
     downloadFile: null
   }
-];
-
-const designProjects = [
-  { id: 1, video: '/videos/AirPods_Animation.mp4', src: '/videos/AirPods_Animation.mp4', title: '3D Animation', expl: <>Modelled and rendered in Blender 5.0 for a personal advertisement project. Features a modern and techy vibe of 3D animation. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> 3D Modeling</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Blender</span></div></> },
-  { id: 2, img: '/samples/sydney.png', fullImg: '/samples/sydney.png', title: 'Digital Illustration', expl: <>A Sydney Opera House concept art drawn purely in Medibang Paint Pro. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Digital Illustration</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><Maximize2 size={16}/> Medibang Paint Pro</span></div></> },
-  { id: 3, img: '/samples/booth.png', fullImg: '/samples/booth.png', title: 'Capstone Booth Mockup', expl: <>Designed the physical booth layout and banners using Photoshop. Used by FG Aesthetic to showcase products at events. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Booth Mockup</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> },
-  { id: 4, img: '/samples/PRODUCT DESIGN.png', fullImg: '/samples/PRODUCT DESIGN.png', title: 'FG Aesthetic Branding', expl: <>Created using Adobe Photoshop for product mockups and marketing assets. Featured are some of my sample works in NTEK Systems.<div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> Aesthetic</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> },
-  { id: 5, img: '/samples/coffee.png', fullImg: '/samples/coffee.png', title: 'Social Media Kit', expl: <>A personal project on coffee shop ad poster for social media posting designed via Canva. Includes story and feed posts. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Images size={16}/> Social Media Kit</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Canva</span></div></> },
-  { id: 6, img: '/samples/PRODUCT DESIGN 2.png', fullImg: '/samples/PRODUCT DESIGN 2.png', title: 'UI Concept Art', expl: <>Website interface visualization edited in Photoshop. Conceptual design for an e-commerce landing page. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><Sparkles size={16}/> UI Concept Art</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Photoshop</span></div></> },
-  { id: 7, video: '/videos/minivlog.mp4', src: '/videos/minivlog.mp4', title: 'Cinematic Mini-Vlog', expl: <>Directed and edited a dynamic promotional vlog focused on personal branding and visual storytelling. <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-bold text-rose-800 dark:text-rose-500 mt-3"><span className="flex items-center gap-1 whitespace-nowrap"><PlayCircle size={16}/> Video Editing</span> <span className="text-gray-300 dark:text-gray-700">|</span> <span className="flex items-center gap-1 whitespace-nowrap"><ExternalLink size={16}/> Premiere/CapCut</span></div></> },
 ];
 
 const projectsData = [
@@ -120,44 +120,6 @@ const Projects = () => {
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen overflow-hidden">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         <h1 className="text-4xl md:text-6xl font-black mb-6 text-center text-black dark:text-white uppercase tracking-tight">Creative & Technical Works</h1>
-        
-        {/* --- 1. AUTOMATION & ANALYTICS SHOWCASE --- */}
-        <div className="border-b border-gray-200 dark:border-gray-800 pb-16 mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3">
-                <Sparkles className="text-rose-800" size={32} /> AUTOMATION & ANALYTICS SHOWCASE
-            </h2>
-
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center bg-gray-50 dark:bg-neutral-900/40 p-6 sm:p-10 rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-xl">
-                <div 
-                    className="w-full lg:w-3/5 relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-black group cursor-pointer"
-                    onClick={() => {
-                        setModalGalleryIndex(0);
-                        setSelectedDesign({
-                            gallery: automationSlides[autoIndex].gallery,
-                            title: automationSlides[autoIndex].title,
-                            expl: automationSlides[autoIndex].desc,
-                            tag: 'Automation Showcase',
-                            downloadFile: automationSlides[autoIndex].downloadFile
-                        });
-                    }}
-                >
-                    <AnimatePresence mode="wait">
-                        <motion.img key={autoIndex} src={automationSlides[autoIndex].img} initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                    </AnimatePresence>
-                </div>
-
-                <div className="w-full lg:w-2/5 flex flex-col justify-center min-h-[250px]">
-                    <h4 className="text-2xl sm:text-3xl font-black text-black dark:text-white mb-4 leading-tight">{automationSlides[autoIndex].title}</h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed font-light mb-6">{automationSlides[autoIndex].desc}</p>
-                    
-                    {automationSlides[autoIndex].downloadFile && (
-                      <a href={automationSlides[autoIndex].downloadFile} download className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full bg-rose-800 hover:bg-rose-700 text-white text-sm font-bold shadow-lg hover:scale-105 transition-all w-fit">
-                          <Download size={16} /> Download Sample File
-                      </a>
-                    )}
-                </div>
-            </div>
-        </div>
 
         {/* --- 2. 3D STACKED DESIGN GALLERY --- */}
         <div className="relative w-full flex flex-col lg:flex-row items-center justify-between gap-12 mb-32">
@@ -185,6 +147,44 @@ const Projects = () => {
                 )
              })}
           </div>
+        </div>
+        
+        {/* --- 1. AUTOMATION & ANALYTICS SHOWCASE --- */}
+        <div className="border-b border-gray-200 dark:border-gray-800 pb-16 mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black dark:text-white flex items-center gap-3">
+                <Sparkles className="text-rose-800" size={32} /> AUTOMATION & ANALYTICS SHOWCASE
+            </h2>
+
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center bg-gray-50 dark:bg-neutral-900/40 p-6 sm:p-10 rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-xl">
+                <div 
+                    className="w-full lg:w-3/5 relative aspect-video rounded-2xl overflow-hidden shadow-lg bg-black group cursor-pointer"
+                    onClick={() => {
+                        setModalGalleryIndex(0);
+                        setSelectedDesign({
+                            gallery: automationSlides[autoIndex].gallery,
+                            title: automationSlides[autoIndex].title,
+                            expl: automationSlides[autoIndex].desc,
+                            tag: 'Automation Showcase',
+                            downloadFile: automationSlides[autoIndex].downloadFile
+                        });
+                    }}
+                >
+                    <AnimatePresence mode="wait">
+                        <motion.img key={autoIndex} src={automationSlides[autoIndex].img} initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                    </AnimatePresence>
+                </div>
+
+                <div className="w-full lg:w-2/5 flex flex-col justify-center min-h-[250px]">
+                    <h4 className="text-2xl sm:text-3xl font-black text-black dark:text-white mb-4 leading-tight">{automationSlides[autoIndex].title}</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed font-light mb-6">{automationSlides[autoIndex].desc}</p>
+                    
+                    {automationSlides[autoIndex].downloadFile && (
+                      <a href={automationSlides[autoIndex].downloadFile} download className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full bg-rose-800 hover:bg-rose-700 text-white text-sm font-bold shadow-lg hover:scale-105 transition-all w-fit">
+                          <Download size={16} /> Download File
+                      </a>
+                    )}
+                </div>
+            </div>
         </div>
 
         {/* --- 3. TECH & DEV PROJECTS --- */}
