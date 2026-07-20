@@ -36,7 +36,7 @@ const Achievements = () => {
         {/* --- GRID OF CARDS (With Staggered Animation) --- */}
         <motion.div 
             variants={staggerContainer}
-            className="grid md:grid-cols-2 gap-8"
+            className="grid md:grid-cols-3 gap-8"
         >
             {/* TESDA NC II */}
             <motion.div 
@@ -184,7 +184,7 @@ const Achievements = () => {
                  {/* PREVIEW IMAGE CONTAINER */}
                 <div className="aspect-video rounded-2xl overflow-hidden mb-6 border border-gray-200 dark:border-gray-800">
                     <motion.img 
-                      src="/certifications/Google Prompting Essentials.png" 
+                      src="/certifications/prompting.png" 
                       alt="Google Prompting Essentials Preview" 
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                       whileHover={{ scale: 1.05 }}
