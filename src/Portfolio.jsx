@@ -79,6 +79,9 @@ const automationSlides = [
     downloadFile: null
   },
   {
+    id: 4,
+    img: '/samples/gb1.png', 
+    gallery: ['/samples/gb1.png', 'samples/gb2.png', '/samples/gb3.png'],
     title: "Analytics Engineering Pipeline",
     type: "Data Engineering Project",
     desc: "Built a modern data pipeline transforming raw datasets in Google BigQuery into analytics-ready dimensional models. Orchestrated ETL/ELT workflows using dbt (Data Build Tool), writing complex SQL CTEs to generate Fact and Dimension tables while ensuring data lineage visibility.",
