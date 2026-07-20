@@ -68,7 +68,7 @@ const automationSlides = [
     gallery: ['/samples/bi1.png', '/samples/bi2.png', '/samples/bi3.png', '/samples/bi4.png'],
     title: 'IT Helpdesk Analytics Dashboard', 
     desc: 'Interactive Power BI dashboard tracking ticket volumes and KPIs. Cleaned raw dataset via Power Query Editor by splitting delimited columns and handling null values.',
-    downloadFile: 'YOUR_FILE_LINK_HERE.pdf' // <-- PALITAN MO ITO NG TOTOONG FILE LINK MO (ex. '/samples/PowerBI_Sample.pbix')
+    downloadFile: 'WA_Fn-UseC_-IT-Help-Desk.pbix'
   },
   { 
     id: 3, 
