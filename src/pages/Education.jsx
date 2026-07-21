@@ -47,7 +47,7 @@ const Education = () => {
                                 </div>
                                 <div className="flex justify-between items-center text-sm md:text-base">
                                     <span className="text-gray-600 dark:text-gray-400">Second Semester</span>
-                                    <span className="font-black text-rose-800 dark:text-rose-500">1.00</span>
+                                    <span className="font-black text-rose-800 dark:text-rose-500">1.47</span>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ const Education = () => {
                     <div>
                         <h4 className="font-bold text-black dark:text-white mb-1">Overall Grade</h4>
                         <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base">
-                            Consistent President's Lister with a running <strong>General Weighted Average (GWA) of 1.19</strong>.
+                            Consistent President's Lister with a running <strong>General Weighted Average (GWA) of 1.26</strong>.
                         </p>
                     </div>
                 </div>
