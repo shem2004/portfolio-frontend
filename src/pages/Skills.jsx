@@ -11,6 +11,7 @@ const Skills = () => {
   // Kumpletong listahan ng skills
   const skillsData = {
     Automation: [
+      { name: "Power Apps", img: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Powerapps-logo.svg" },
       { name: "Power Automate", img: "https://msicons.com/icons/power-platform/PowerAutomate_scalable.svg" },
       { name: "Power BI", img: "https://img.icons8.com/color/144/power-bi.png" },
       { name: "IDP & AI Builder", img: "https://img.icons8.com/color/480/artificial-intelligence.png" },
@@ -33,6 +34,8 @@ const Skills = () => {
       { name: "JWT Auth", img: "https://cdn.worldvectorlogo.com/logos/jwt-3.svg" },
     ],
     Database: [
+      { name: "Google BigQuery", img: "https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-icon.svg" },
+      { name: "dbt", img: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dbt.svg" },
       { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
       { name: "SQLite", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" },
       { name: "SQLAlchemy", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlalchemy/sqlalchemy-original.svg" },

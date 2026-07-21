@@ -96,7 +96,7 @@ const automationSlides = [
     gallery: ['/samples/apps.png', '/samples/apps2.png', '/samples/apps3.png', '/samples/apps4.png'],
     title: 'Power Apps eClaim Portal', 
     desc: 'Designed an end-to-end eClaim Portal using Microsoft Power Apps for seamless user data entry. Orchestrated a backend Power Automate flow triggered by new submissions to dynamically fetch records and dispatch automated email receipts.',
-    downloadFile: 'null'
+    downloadFile: '/samples/eClaim Portal.msapp'
   },
   { 
     id: 2, 

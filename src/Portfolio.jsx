@@ -66,7 +66,7 @@ const automationSlides = [
     gallery: ['/samples/apps.png', '/samples/apps2.png', '/samples/apps3.png', '/samples/apps4.png'],
     title: 'Power Apps eClaim Portal', 
     desc: 'Designed an end-to-end eClaim Portal using Microsoft Power Apps for seamless user data entry. Orchestrated a backend Power Automate flow triggered by new submissions to dynamically fetch records and dispatch automated email receipts.',
-    downloadFile: 'null'
+    downloadFile: '/samples/eClaim Portal.msapp'
   },
   { 
     id: 2, 
@@ -703,7 +703,7 @@ const SkillsTicker = () => {
     ],
     Database: [
       { name: "Google BigQuery", img: "https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-icon.svg" },
-      { name: "dbt", img: "/samples/ dbt.png" },
+      { name: "dbt", img: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dbt.svg" },
       { name: "MySQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
       { name: "SQLite", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" },
       { name: "SQLAlchemy", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlalchemy/sqlalchemy-original.svg" },
