@@ -52,6 +52,12 @@ const projectsData = [
     tags: ["Python", "Flask", "NFC", "MySQL"]
   },
   {
+    title: "eClaim Portal Application",
+    type: "Power Platform Solution",
+    desc: "Designed an end-to-end eClaim Portal using Microsoft Power Apps for seamless data entry. Orchestrated a backend Power Automate flow to dynamically fetch records and dispatch automated email receipts upon submission.",
+    tags: ["Power Apps", "Power Automate", "Workflow", "Low-Code"]
+  },
+  {
     title: "Product & UI/UX Design",
     type: "Capstone Project",
     desc: "Led the visual identity and product design using Adobe Photoshop, including mock-up booth designs and the overall website interface.",
@@ -86,6 +92,14 @@ const projectsData = [
 const automationSlides = [
   { 
     id: 1, 
+    img: '/samples/apps.png', 
+    gallery: ['/samples/apps.png', '/samples/apps2.png', '/samples/apps3.png', '/samples/apps4.png'],
+    title: 'Power Apps eClaim Portal', 
+    desc: 'Designed an end-to-end eClaim Portal using Microsoft Power Apps for seamless user data entry. Orchestrated a backend Power Automate flow triggered by new submissions to dynamically fetch records and dispatch automated email receipts.',
+    downloadFile: 'null'
+  },
+  { 
+    id: 2, 
     img: '/samples/bi1.png', 
     gallery: ['/samples/bi1.png', '/samples/bi2.png', '/samples/bi3.png', '/samples/bi4.png'],
     title: 'IT Helpdesk Analytics Dashboard', 
@@ -93,7 +107,7 @@ const automationSlides = [
     downloadFile: '/samples/WA_Fn-UseC_-IT-Help-Desk.pbix'
   },
   { 
-    id: 2, 
+    id: 3, 
     img: '/samples/idp1.png', 
     gallery: ['/samples/idp1.png', '/samples/idp2.png'],
     title: 'Intelligent Document Processing', 
@@ -101,7 +115,7 @@ const automationSlides = [
     downloadFile: null
   },
   { 
-    id: 3, 
+    id: 4, 
     img: '/samples/pa1.png', 
     gallery: ['/samples/pa1.png', '/samples/pa2.png', '/samples/pa3.png'],
     title: 'Enterprise Workflow Orchestration', 
@@ -109,7 +123,7 @@ const automationSlides = [
     downloadFile: null
   },
   {
-    id: 4,
+    id: 5,
     img: '/samples/gb1.png', 
     gallery: ['/samples/gb1.png', 'samples/gb2.png', '/samples/gb3.png'],
     title: "Analytics Engineering Pipeline",
